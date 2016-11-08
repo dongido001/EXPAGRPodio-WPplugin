@@ -1,0 +1,319 @@
+{
+	"Aguascalientes":{
+		"Instituto Tecnológico de Aguascalientes":"Aguascalientes",
+		"ITESM Aguascalientes":"Aguascalientes",
+		"Universidad Autónoma de Aguascalientes":"Aguascalientes",
+		"Universidad Politécnica de Aguascalientes":"Aguascalientes",
+		"Universidad Tecnológica El Retoño":"Aguascalientes",
+		"Universidad Cuauhtémoc":"Aguascalientes",
+		"UP Bonaterra":"Aguascalientes",
+		"Universidad Tecnológica de Calvillo":"Aguascalientes",
+		"UVM Aguascalientes":"Aguascalientes",
+		"Otro":"Aguascalientes"
+		},
+		"Guanajuato":{
+			"Instituto Tecnológico de Celaya":"Celaya", 
+			"UNITESBA":"Celaya",
+			"Universidad Continente Americano":"Celaya",
+			"Universidad de Celaya":"Celaya",
+			"Universidad Lasallista Benavente":"Celaya",
+			"Universidad Latina de México":"Celaya",
+			"Universidad Tecnológica del Centro de México":"Celaya",
+			"Universidad Tecnólogica Laja Bajio":"Celaya",
+			"Benemérita y Centenaria Escuela Normal Oficial de Guanajuato":"Guanajuato",
+			"Centro de Investigaciones Matemáticas (CIMAT)":"Guanajuato",
+			"ITESG":"Guanajuato",
+			"Universidad de Guanajuato":"Guanajuato",
+			"Universidad Santa Fe":"Guanajuato",
+			"División de Ingenierías Campus Irapuato-Salamanca":"Guanajuato",
+			"Instituto Tecnológico Superior del Sur de Guanajuato (ITSUR)":"Guanajuato",
+			"Instituto Irapuato":"Irapuato",
+			"ITESI":"Irapuato",
+			"ITESM Irapuato":"Irapuato",
+			"Universidad Quetzalcoátl de Irapuato":"Irapuato",
+			"Instituto Tecnológico de León":"Leon",
+			"ITESM León":"Leon",
+			"Universidad de León":"Leon",
+			"Universidad Iberoamericana León":"Leon",
+			"Universidad Tecnologica de León":"Leon",
+			"UPN León":"Leon",
+			"ULSA Bajío":"Leon",
+			"IPN (UPIIG)":"Leon",
+			"Universidad de Guanajuato Campus León":"Leon",
+			"Otro":"Guanajuato"
+			},
+			"San Luis Potosí":{
+				"San Luis Potosí":"Guanajuato" 
+				},
+				"Michoacán":{
+					"Michoacán":"Queretaro"
+					},
+					"Chihuahua":{
+						"Instituto Tecnológico de Chihuahua":"Chihuahua",
+						"Tec Milenio Chihuahua":"Chihuahua",
+						"ULSA Chihuahua":"Chihuahua",
+						"Universidad Autónoma de Chihuahua":"Chihuahua",
+						"ITESM Chihuahua":"Chihuahua",
+						"Universidad Tecnológica de Chihuahua":"Chihuahua",
+						"Universidad de Durango Campus Chihuahua":"Chihuahua",
+						"Instituto Tecnológico de Ciudad Juárez":"Ciudad Juarez",
+						"ITESM Ciudad Juárez":"Ciudad Juarez",
+						"Tec Milenio Ciudad Juárez":"Ciudad Juarez",
+						"Universidad Autónoma de Ciudad Juárez":"Ciudad Juarez",
+						"Otro":"Chihuahua"
+						},
+						"Sonora":{
+							"Universidad de Sonora Campus Obregón":"Hermosillo",
+							"ITESM Obregón":"Hermosillo",
+							"ITSON":"Hermosillo",
+							"ULSA Noroeste":"Hermosillo",
+							"Instituto Tecnológico de Hermosillo":"Hermosillo",
+							"ITESM Hermosillo":"Hermosillo",
+							"Tec Milenio Hermosillo":"Hermosillo",
+							"Universidad de Sonora (UNISON)":"Hermosillo",
+							"Universidad Estatal de Sonora":"Hermosillo",
+							"Universidad Kino":"Hermosillo",
+							"Centro Universitario de Tijuana":"Hermosillo",
+							"Otro":"Hermosillo"
+							},
+							"Baja california":{
+								"Baja california":"Hermosillo"
+								},
+								"Baja california sur":{
+									"Baja california sur":"Hermosillo"
+									},
+									"Tamaulipas":{
+										"Instituto Tecnológico de Ciudad Victoria":"Tampico",
+										"ULSA Victoria":"Tampico",
+										"Universidad Autónoma de Tamaulipas Campus Ciudad Victoria":"Tampico",
+										"Universidad Politécnica de Victoria":"Tampico",
+										"UVM Ciudad Victoria":"Tampico",
+										"Instituto de Estudios Superiores de Tamaulipas":"Tampico",
+										"ITESM Tampico":"Tampico",
+										"Universidad Autónoma de Tamaulipas Campus Tampico":"Tampico",
+										"Universidad del Noreste":"Tampico",
+										"Instituto Tecnológico de Ciudad Madero":"Tampico",
+										"Otro":"Tampico"
+										},
+										"Jalisco":{
+											"Universidad del Valle de Atemajac (UNIVA)":"Guadalajara",
+											"ITESM Guadalajara":"Guadalajara",
+											"ITESO":"Guadalajara",
+											"UDG":"Guadalajara",
+											"UP Guadalajara":"Guadalajara",
+											"Instituto Tecnológico Superior de Zapopan (ITSZ)":"Guadalajara",
+											"Otro":"Guadalajara"
+											},
+											"Colima":{
+												"Colima":"Guadalajara"
+												},
+												"Nayarit":{
+													"Nayarit":"Guadalajara" 
+													},
+													"Nuevo León":{
+														"ITESM Monterrey":"ITESM Monterrey",
+														"Tec Milenio Monterrey":"ITESM Monterrey",
+														"Universidad Autónoma de Nuevo León (UANL)":"ITESM Monterrey",
+														"Universidad Regiomontana":"ITESM Monterrey",
+														"Centro de Estudios Superiores de Diseño de Monterrey (CEDIM)":"ITESM Monterrey",
+														"UDEM":"UDEM",
+														"Otro":"ITESM Monterrey"
+														},
+														"Durango":{
+															"Durango":"La Laguna"
+															},
+															"Coahuila":{
+																"Instituto Tecnológico de Laguna":"La Laguna",
+																"ITESM Laguna":"La Laguna",
+																"Universidad Iberoamericana Laguna":"La Laguna",
+																"ULSA Laguna":"La Laguna",
+																"Otro":"La Laguna"
+																},
+																"Morelos":{
+																	"ITESM Cuernavaca":"Cuernavaca",
+																	"UNINTER":"Cuernavaca" ,
+																	"UAEM":"Cuernavaca" ,
+																	"ULSA":"Cuernavaca" ,
+																	"UTEZ":"Cuernavaca" ,
+																	"UPEMOR":"Cuernavaca" ,
+																	"Tec Milenio Cuernavaca":"Cuernavaca",
+																	"Otro":"Cuernavaca"
+
+																	},
+																	"Guerrero":{
+																		"Guerrero":"Cuernavaca"
+																		},
+																		"Sinaloa":{
+																			"Instituto Tecnológico de Los Mochis":"Sinaloa",
+																			"UAD Los Mochis":"Sinaloa",
+																			"Universidad Autónoma de Sinaloa Campus Los Mochis":"Sinaloa",
+																			"Universidad de Occidente  Campus Los Mochis":"Sinaloa",
+																			"Instituto Tecnológico de Culiacán":"Sinaloa",
+																			"ITESM Sinaloa":"Sinaloa",
+																			"Tec Milenio Culiacán":"Sinaloa",
+																			"UAD Culiacán":"Sinaloa",
+																			"Universidad Autónoma de Sinaloa":"Sinaloa",
+																			"Universidad Casa Blanca":"Sinaloa",
+																			"Universidad Católica de Culiacán":"Sinaloa",
+																			"Universidad de Occidente":"Sinaloa",
+																			"Universidad de San Miguel":"Sinaloa",
+																			"Universidad México Internacional":"Sinaloa",
+																			"Universidad San Sebastián":"Sinaloa",
+																			"Otro":"Sinaloa"
+																			},
+																			"Yucatán":{
+																				"Universidad Autónoma de Yucatán":"Merida, Yucatan",
+																				"Universidad Mesoamericana (UMSA)":"Merida, Yucatan",
+																				"Universidad Modelo":"Merida, Yucatan",
+																				"Instituto Tecnológico de Mérida":"Merida, Yucatan",
+																				"Tec Milenio Mérida":"Merida, Yucatan",
+																				"UNID Mérida":"Merida, Yucatan",
+																				"Universidad Anáhuac Mayab":"Merida, Yucatan",
+																				"Universidad Latino":"Merida, Yucatan",
+																				"Universidad Marista":"Merida, Yucatan",
+																				"Otro":"Merida, Yucatan"
+																				},
+																				"Campeche":{
+																					"Campeche":"Merida, Yucatan"
+																					},
+																					"Quintana Roo":{
+																						"Quintana Roo":"Merida, Yucatan"
+																						},
+																						"Oaxaca":{
+																							"ULSA Oaxaca":"Oaxaca",
+																							"Universidad Regional del Sureste (URSE)":"Oaxaca",
+																							"UTVCO":"Oaxaca",
+																							"Universidad del Mar":"Oaxaca",
+																							"Universidad Tecnológica de los Valles Centrales de Oaxaca":"Oaxaca",
+																							"Universidad Autónoma Benito Juárez de Oaxaca":"Oaxaca",
+																							"Universidad Anáhuac Oaxaca":"Oaxaca",
+																							"Universidad Tecnológica de la Sierra Sur":"Oaxaca",
+																							"Instituto de Estudios Superiores de Oaxaca":"Oaxaca",
+																							"Otro":"Oaxaca"
+																							},
+																							"Veracruz":{
+																								"Tecnológico de Gutiérrez Zamora":"Veracruz",
+																								"Universidad de Oriente":"Veracruz",
+																								"Instituto Tecnológico Superior de Poza Rica":"Veracruz",
+																								"Universidad Veracruzana (Todos los campus)":"Veracruz",
+																								"Universidad de Xalapa":"Veracruz",
+																								"ITESM  Córdoba":"Veracruz",
+																								"Universidad Eurohispanoamericana":"Veracruz",
+																								"Instituto Tecnológico Superior de Alvarado":"Veracruz",
+																								"Benemérita Escuela Normal Veracruzana Enrique C. Rebsamen":"Veracruz",
+																								"Instituto Tecnológico Superior de Xalapa":"Veracruz",
+																								"Universidad Anáhuac Xalapa":"Veracruz",
+																								"Universidad Cristóbal Colón":"Veracruz",
+																								"Universidad de América Latina":"Veracruz",
+																								"Universidad Gestalt de Diseño":"Veracruz",
+																								"Otro":"Veracruz"
+																								},
+																								"Puebla":{
+																									"Benemérita Universidad Autónoma de Puebla (BUAP)":"Puebla",
+																									"ITESM Puebla":"Puebla",
+																									"Universidad de las Américas Puebla (UDLAP)":"Puebla",
+																									"Universidad Iberoamericana Puebla":"Puebla",
+																									"UPAEP":"Puebla"
+																									},
+																									"Tlaxcala":{
+																										"Tlaxcala":"Puebla"
+																										},
+																										"Querétaro":{
+																											"Insituto Tecnológico de Querétaro":"Queretaro",
+																											"ITESM Querétaro":"Queretaro",
+																											"Tec Milenio Querétaro":"Queretaro",
+																											"Universidad Anáhuac Querétaro":"Queretaro",
+																											"UAQ":"Queretaro",
+																											"Universidad Cuauhtemoc":"Queretaro",
+																											"UVM Querétaro":"Queretaro",
+																											"Universidad Católica (UNIVA)":"Queretaro",
+																											"Universidad Mondragón":"Queretaro",
+																											"Otro":"Queretaro"
+																											},
+																											"Tabasco":{
+																												"Tec Milenio Villahermosa":"Tabasco",
+																												"UAG Campus Tabasco":"Tabasco",
+																												"Universidad Juárez Autónoma de Tabasco":"Tabasco",
+																												"Universidad Mundo Maya":"Tabasco",
+																												"Universidad Olmeca":"Tabasco",
+																												"Universidad Politécnica del Golfo de México (UPGM)":"Tabasco",
+																												"Universidad Politécnica del Centro (UPC)":"Tabasco",
+																												"UVM Villahermosa":"Tabasco",
+																												"Otro":"Tabasco"
+																												},
+																												"Chiapas":{
+																													"Chiapas":"Tabasco"
+																													},
+																													"Ciudad de México":{
+																														"Centro De Estudios En Ciencias De La Comunicación":"UP",
+																														"Centro Universitario Incarnate Word":"UP",
+																														"Universidad Intercontinental":"UP" ,
+																														"UP Santa Fe":"UP" ,
+																														"UP":"UP",
+																														"UVM Coyoacán":"UP" ,
+																														"UAM Xochimilco":"UNAM",
+																														"Universidad de Londres":"UNAM",
+																														"UNAM":"UNAM",
+																														"COLMEX":"UNAM",
+																														"Universidad del Pedregal":"UNAM",
+																														"Universidad Latinoamericana":"UNAM",
+																														"ULSA Condesa":"ULSA",
+																														"ULSA Facultad de Medicina":"ULSA",
+																														"ULSA Nezahualcóyotl":"ULSA",
+																														"Universidad de las Américas Ciudad de México":"ULSA",
+																														"Escuela Libre de Derecho":"ULSA",
+																														"UVM Chapultepec":"ULSA",
+																														"ITESM Santa Fe":"ITESM Santa Fe",
+																														"Centro Universitario de Mercadotecnia y Publicidad":"ITESM  Santa Fe",
+																														"Tecnológico del Ángel":"ITESM  Santa Fe",
+																														"Universidad Anáhuac México Norte":"ITESM  Santa Fe",
+																														"ITESM Ciudad de México":"ITESM CEM",
+																														"EBC Reforma":"ITESM CEM",
+																														"Instituto Tecnológico Autónomo de México (ITAM)":"ITAM",
+																														"Universidad Anáhuac México Sur":"ITAM",
+																														"Universidad Iberoamericana Ciudad de México":"ITAM",
+																														"Centro  de diseño, cine y televisión":"ITAM",
+																														"UNITEC (Todos los campus)":"IPN",
+																														"UAM Azcapotzalco":"IPN",
+																														"IPN ":"IPN",
+																														"Otro":"Expansions MX"
+																														},
+																														"Estado de México":{
+																															"ULSA Nezahualcóyotl":"ULSA",
+																															"Instituto Tecnológico de Toluca":"UAEMEX",
+																															"Instituto Universitario Franco Inglés de México":"UAEMEX",
+																															"EBC Toluca":"UAEMEX",
+																															"Tec Milenio Toluca":"UAEMEX",
+																															"UNITEC Campus Toluca":"UAEMEX",
+																															"UAEMEX":"UAEMEX",
+																															"Centro Universitario Ixtlahuaca":"UAEMEX",
+																															"UMIN Universidad Mexicana de Innovación en Negocios":"ITESM Toluca",
+																															"UVM Toluca":"ITESM Toluca",
+																															"ITESM Toluca":"ITESM Toluca",
+																															"Campus Universitario Siglo XXI":"ITESM Toluca",
+																															"Colegio Mexiquense":"ITESM Toluca",
+																															"ITESM Estado de México":"ITESM CEM",
+																															"EBC Tlalnepantla":"ITESM CEM",
+																															"Otro":"Expansions MX"
+																															},
+																															"Hidalgo":{
+																																"Otro":"ITESM Toluca"
+																																},
+																																"Zacatecas":{
+																																	"Instituto Tecnológico de Zacatecas (ITZ)":"ITESM Monterrey",
+																																	"ITESM Zacatecas":"ITESM Monterrey",
+																																	"Universidad Autónoma de Zacatecas (UAZ)":"ITESM Monterrey",
+																																	"Universidad Autónoma de Durango Campus Zacatecas":"ITESM Monterrey",
+																																	"Universidad Interamericana para el Desarrollo":"ITESM Monterrey",
+																																	"Otro":"ITESM Monterrey"
+																																}
+																															}
+
+
+
+
+
+
+
+
+

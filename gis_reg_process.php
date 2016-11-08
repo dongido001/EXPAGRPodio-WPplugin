@@ -1,9 +1,9 @@
 <?php
-
 //podio library
 include_once '/lib/podio-php-4.3.0/PodioAPI.php';
 //get Response library
 require_once '/home/webmaster/wp-config-files/GetResponseAPI3.class.php';
+require '/home/webmaster/wp-config-files/vendor/google/recaptcha/src/autoload.php';
 //private keys config files
 $configs_external = include('/home/webmaster/wp-config-files/wp_login_config.php');
 //plugin configs
@@ -11,101 +11,26 @@ $configs = include('config.php');
 
 
 
-///////////PODIO Start /////////
-///////////PODIO Start /////////
-///////////PODIO Start /////////
-///////////PODIO Start /////////
-///////////PODIO Start /////////
-
-//Podio submit
-// This is to test the conection with the podio API and the authentication
-Podio::setup('aiesec-mexico', $configs_external['podio_key']);
+//captcah verification
+////captcah verification
+/////captcah verification
+/////captcah verification
 
 
-//getting the podio Id for each lc
-$lc_podio = 'lc_podio.json';
-$json_podio_lc = file_get_contents($lc_podio, false, stream_context_create($arrContextOptions)); 
-$lc_podio_map = json_decode($json_podio_lc,true); 
-$user_lc_podio = $lc_podio_map[$_POST['localcommittee']];
+$recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
 
-//getting the podio Id for each lc
-$uni_podio = 'universidades_podio.json';
-$json_podio_uni = file_get_contents($uni_podio, false, stream_context_create($arrContextOptions)); 
-$uni_podio_map = json_decode($json_podio_uni,true); 
-$user_uni_podio = $uni_podio_map[$_POST['university']];
+$resp = $recaptcha->verify($_POST['g-recaptcha-response'], get_client_ip());
+if (!$resp->isSuccess()) {
+    $errors = $resp->getErrorCodes();
+    header("Location: http://aiesec.org.mx/registro_no");
 
-
-$program = intval($_POST['interested_in']);
-$podio_id = 1;
-
-try {
-
-//OGV
-   if ($program == 1){
-    Podio::authenticate_with_app(intval($configs_external['podio_space_ogv_id']),
-     $configs_external['podio_space_ogv_key']);
-    $podio_id = intval($configs_external['podio_space_ogv_id']);
-}
-//OGT
-else {
-    Podio::authenticate_with_app(intval($configs_external['podio_space_ogt_id']), 
-        $configs_external['podio_space_ogt_key']);
-    $podio_id = intval($configs_external['podio_space_ogt_id']);
+    return;
 }
 
-
-$fields = new PodioItemFieldCollection(array(
-  new PodioTextItemField(array("external_id" => "titulo", "values" => ($_POST['first_name'] ) )),
-  new PodioTextItemField(array("external_id" => "apellido", "values" => $_POST['last_name'])),
-  new PodioTextItemField(array("external_id" => "correo", "values" => $_POST['email'])),
-  new PodioTextItemField(array("external_id" => "numero-telefonico", "values" => $_POST['phone'])),
-
-  new PodioCategoryItemField(array("external_id" => "comite-local", "values" => intval($user_lc_podio))),
-  new PodioCategoryItemField(array("external_id" => "institutouniversidad", "values" => intval($user_uni_podio))),
-  new PodioCategoryItemField(array("external_id" => "fuente", "values" => intval($_POST['source'])))
-  ));
-
-
-
-
-
-
-
-// Create the item object with fields
-// Be sure to add an app or podio-php won't know where to create the item
-$item = new PodioItem(array(
-  'app' => new PodioApp($podio_id), // Attach to app with app_id=123
-  'fields' => $fields
-  ));
-
-// Save the new item
-$item->save();
-
-
-}
-catch (PodioError $e) {
-  // Something went wrong. Examine $e->body['error_description'] for a description of the error.
-    echo $e;
-}
-
-
-////////PODIO END /////////
-////////PODIO END /////////
-////////PODIO END /////////
-////////PODIO END /////////
-////////PODIO END /////////
-////////PODIO END /////////
-
-
-function is_iterable($var)
-{
-    return $var !== null 
-    && (is_array($var) 
-        || $var instanceof Traversable 
-        || $var instanceof Iterator 
-        || $var instanceof IteratorAggregate
-        );
-}
+//captcah verification
+////captcah verification
+/////captcah verification
+/////captcah verification
 
 /**
 * AIESEC GIS Form Submission via cURL
@@ -154,9 +79,7 @@ $lc_json = 'lc_id.json';
 $json = file_get_contents($lc_json, false, stream_context_create($arrContextOptions)); 
 $lc_gis_map = json_decode($json,true); 
 
-/*foreach($leads as $key => $value){
-    $option_list = $option_list.'<option value="'.$key.'">'.$key.'</option>'."\n";//var_dump($lead->);    
-}*/
+
 
 $user_lc = $lc_gis_map[$_POST['localcommittee']];
 
@@ -190,7 +113,7 @@ $fields_string = "";
 foreach($fields as $key=>$value) { $fields_string .= $key.'='.urlencode($value).'&'; }
 rtrim($fields_string, '&');
 $innerHTML = "";
-/* UNCOMMENT THIS BLOCK: to enable real GIS form submission*/
+// UNCOMMENT THIS BLOCK: to enable real GIS form submission
 
 
 // POST form with curl
@@ -214,9 +137,18 @@ curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false); // TODO: FIX SSL - VERIFYPEER 
 $result = curl_exec($ch2);
 
 curl_errors($ch2);
-//close connection
+// Check if any error occurred
+if (curl_errno($ch2)) {
+    
+    header("Location: http://aiesec.org.mx/registro_no");
+    return;
+}
+
+
 curl_close($ch2);
-//echo $result;
+
+
+
 libxml_use_internal_errors(true);
 $doc = new DOMDocument();
 $doc->loadHTML($result);    
@@ -224,6 +156,7 @@ libxml_clear_errors();
 $selector = new DOMXPath($doc);
 
 $result = $selector->query('//div[@id="error_explanation"]');
+
 
 $children = $result->item(0)->childNodes;
 if (is_iterable($children))
@@ -240,12 +173,106 @@ $innerHTML = preg_replace('~[\r\n]+~', '', $innerHTML);
 $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 
 
-////////////////GET RESPONSE 
-/*
-*FOR GET RESPONSE 
-*
-*
-*
+
+
+
+///////////PODIO Start /////////
+///////////PODIO Start /////////
+///////////PODIO Start /////////
+///////////PODIO Start /////////
+///////////PODIO Start /////////
+
+//Podio submit
+// This is to test the conection with the podio API and the authentication
+Podio::setup('aiesec-mexico', $configs_external['podio_key']);
+
+
+//getting the podio Id for each lc
+$lc_podio = 'lc_podio.json';
+$json_podio_lc = file_get_contents($lc_podio, false, stream_context_create($arrContextOptions)); 
+$lc_podio_map = json_decode($json_podio_lc,true); 
+$user_lc_podio = $lc_podio_map[$_POST['localcommittee']];
+
+//getting the podio Id for each lc
+$uni_podio = 'universidades_podio.json';
+$json_podio_uni = file_get_contents($uni_podio, false, stream_context_create($arrContextOptions)); 
+$uni_podio_map = json_decode($json_podio_uni,true); 
+$user_uni_podio = $uni_podio_map[$_POST['university']];
+
+
+$program = intval($_POST['interested_in']);
+$podio_id = 1;
+
+try {
+
+//OGV
+ if ($program == 1){
+    Podio::authenticate_with_app(intval($configs_external['podio_space_ogv_id']),
+       $configs_external['podio_space_ogv_key']);
+    $podio_id = intval($configs_external['podio_space_ogv_id']);
+}
+//OGT
+else {
+    Podio::authenticate_with_app(intval($configs_external['podio_space_ogt_id']), 
+        $configs_external['podio_space_ogt_key']);
+    $podio_id = intval($configs_external['podio_space_ogt_id']);
+}
+
+
+$fields = new PodioItemFieldCollection(array(
+  new PodioTextItemField(array("external_id" => "titulo", "values" => ($_POST['first_name'] ) )),
+  new PodioTextItemField(array("external_id" => "apellido", "values" => $_POST['last_name'])),
+  new PodioTextItemField(array("external_id" => "correo", "values" => $_POST['email'])),
+  new PodioTextItemField(array("external_id" => "numero-telefonico", "values" => $_POST['phone'])),
+
+  new PodioCategoryItemField(array("external_id" => "comite-local", "values" => intval($user_lc_podio))),
+  new PodioCategoryItemField(array("external_id" => "institutouniversidad", "values" => intval($user_uni_podio))),
+  new PodioCategoryItemField(array("external_id" => "fuente", "values" => intval($_POST['source'])))
+  ));
+
+
+
+
+
+
+
+// Create the item object with fields
+// Be sure to add an app or podio-php won't know where to create the item
+$item = new PodioItem(array(
+  'app' => new PodioApp($podio_id), // Attach to app with app_id=123
+  'fields' => $fields
+  ));
+
+// Save the new item
+$item->save();
+
+
+}
+catch (PodioError $e) {
+  // Something went wrong. Examine $e->body['error_description'] for a description of the error.
+   
+    header("Location: http://aiesec.org.mx/registro_no");
+}
+
+
+////////PODIO END /////////
+////////PODIO END /////////
+////////PODIO END /////////
+////////PODIO END /////////
+////////PODIO END /////////
+////////PODIO END /////////
+
+
+function is_iterable($var)
+{
+    return $var !== null 
+    && (is_array($var) 
+        || $var instanceof Traversable 
+        || $var instanceof Iterator 
+        || $var instanceof IteratorAggregate
+        );
+}
+
 
 
 function get_client_ip() {
@@ -259,13 +286,23 @@ function get_client_ip() {
     else if(getenv('HTTP_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_FORWARDED_FOR');
     else if(getenv('HTTP_FORWARDED'))
-     $ipaddress = getenv('HTTP_FORWARDED');
- else if(getenv('REMOTE_ADDR'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+   else if(getenv('REMOTE_ADDR'))
     $ipaddress = getenv('REMOTE_ADDR');
 else
     $ipaddress = 'UNKNOWN';
 return $ipaddress;
 }
+
+////////////////GET RESPONSE 
+/*
+*FOR GET RESPONSE 
+*
+*
+*
+
+
+
 
 
 

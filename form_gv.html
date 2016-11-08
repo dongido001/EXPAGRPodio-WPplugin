@@ -1,133 +1,139 @@
-<style type="text/css">
-.toolTip{
-  background: rgba(0,0,0,0.7);
-  border: 2px solid #000;
-  width: auto;
-  color: white;
-  border-radius: 0px 0px 5px 5px;
-  position: relative;
-  top: -20px;
-  float: left;
-  text-align: center;
-  padding: 1px 10px;
-  text-align: center;
-  font-weight: 100;
-  padding: 0px 15px;
-  max-width: 80%;
-}
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <style type="text/css">
+  .toolTip{
+    background: rgba(0,0,0,0.7);
+    border: 2px solid #000;
+    width: auto;
+    color: white;
+    border-radius: 0px 0px 5px 5px;
+    position: relative;
+    top: -20px;
+    float: left;
+    text-align: center;
+    padding: 1px 10px;
+    text-align: center;
+    font-weight: 100;
+    padding: 0px 15px;
+    max-width: 80%;
+  }
 
-#first_name:hover + label{
- display:block;
-}
+  #first_name:hover + label{
+   display:block;
+ }
 
-#TT:hover + label{
- display:block;
-}
+ #TT:hover + label{
+   display:block;
+ }
 
-#TT + label{
+ #TT + label{
   display:none; 
 }
 
 </style>
-<div class="col-lg-12 col-sm-10 col-xs-10"  >
-  <form action="{path-gis_reg_process}" method="POST" background="OGV-Final3-sinTT.png" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent; width:75%; margin-left:10%;">
-    <table class="sighnup-form-table" style="background-color: rgba(248, 90, 64, 0.75);    border-radius: 7px;">
-      <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
-      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-        <td style="vertical-align: top;padding-top: 15px; padding-right: 5px; width:25%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Nombre</h6> <span class="required" style="color:#FFF !important;">*</span></td>
-        <td style="width:80%;">
-          <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="first_name" class="input" type="text" maxlength="50" name="first_name" 
-          required
-          oninvalid="this.setCustomValidity('Ingresa tu nombre')"
-          oninput="setCustomValidity('')"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip t1" style="">Nombre o Nombres</label>
-        </td>
-      </tr>
-
-      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-        <td style="vertical-align: top;padding-top: 15px; padding-right: 5px; width:25%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Apellidos</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
-        <td style="width:66%;">
-          <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="last_name" class="input" type="text" name="last_name" maxlength="50"
-          required
-          oninvalid="this.setCustomValidity('Ingresa tu apellido')"
-          oninput="setCustomValidity('')"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Apellido paterno y materno completos</label>
-        </td>
-      </tr>
-      
-      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-        <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">E-mail</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
-        <td style="color:white;"> 
-          <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="">
-            <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="email" class="input" type="text" name="email" maxlength="50"
+</head>
+<body>
+  <div class="col-lg-12 col-sm-10 col-xs-10"  >
+    <form action="{path-gis_reg_process}" method="POST" background="OGV-Final3-sinTT.png" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent; width:75%; margin-left:10%;">
+      <table class="sighnup-form-table" style="background-color: rgba(248, 90, 64, 0.75);    border-radius: 7px;">
+        <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
+        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+          <td style="vertical-align: top;padding-top: 15px; padding-right: 5px; width:25%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Nombre</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+          <td style="width:80%;">
+            <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="first_name" class="input" type="text" maxlength="50" name="first_name" 
             required
-            oninvalid="this.setCustomValidity('Please input valid e-mail')"
-            oninput="setCustomValidity('')"
-            pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Este correo es el que te permitirá entrar a nuestro portal de oportunidades</label>
-
+            oninvalid="this.setCustomValidity('Ingresa tu nombre')"
+            oninput="setCustomValidity('')"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip t1" style="">Nombre o Nombres</label>
           </td>
         </tr>
 
         <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Contraseña</h6> <span class="required" style="color:#FFF !important;">*</span></td>
-          <td style="width:66%;color:white;">
-            <span  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="">
-              <input style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="password" class="input" type="password" name="password"
+          <td style="vertical-align: top;padding-top: 15px; padding-right: 5px; width:25%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Apellidos</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+          <td style="width:66%;">
+            <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="last_name" class="input" type="text" name="last_name" maxlength="50"
+            required
+            oninvalid="this.setCustomValidity('Ingresa tu apellido')"
+            oninput="setCustomValidity('')"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Apellido paterno y materno completos</label>
+          </td>
+        </tr>
+
+        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+          <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">E-mail</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+          <td style="color:white;"> 
+            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="">
+              <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="email" class="input" type="text" name="email" maxlength="50"
               required
-              oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caractéres')"
+              oninvalid="this.setCustomValidity('Please input valid e-mail')"
               oninput="setCustomValidity('')"
-              pattern=".{8,}"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Esta será tu contraseña para el acceso a nuestro portal de oportunidades.</label>
-            </span>
-          </td>
-        </tr>
+              pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Este correo es el que te permitirá entrar a nuestro portal de oportunidades</label>
 
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Número Telefónico</h6> <span class="required" style="color:#FFF !important;">*</span></td>
-          <td> 
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Número de teléfono o celular">
-              <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="phone" class="input" type="text" name="phone" maxlength="50"
-              required
-              oninvalid="this.setCustomValidity('Ingresa un número telefónico valido')"
-              oninput="setCustomValidity('')"
-              pattern="\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Ingresa tu número número de teléfono o celular con LADA.</label>
-            </label>
-          </td>
-        </tr>
+            </td>
+          </tr>
 
-        <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Canal</h6> <span class="required" style="color:#FFF !important;">*</span></td>
-          <td>
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Medio por el cual te enteraste de este programa">
-              <select id="source" name="source" title=""  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  >
-                <option disabled selected value>Selecciona una opción</option>
-                <option value="1" style="background-color: #fff;">Publicidad en Facebook</option>
-                <option value="2" style="background-color: #fff;">Página de Facebook</option>
-                <option value="3" style="background-color: #fff;">Sitio web</option>
-                <option value="4" style="background-color: #fff;">Twitter</option>
-                <option value="5" style="background-color: #fff;">Instagram</option>
-                <option value="6" style="background-color: #fff;">LinkedIn</option>
-                <option value="8" style="background-color: #fff;">Amigos ó Familia</option>
-                <option value="9" style="background-color: #fff;">Soy Miembro de AIESEC</option>
-                <option value="10" style="background-color: #fff;">Publicidad en Universidad</option>
-                <option value="11" style="background-color: #fff;">Stand en Universidad</option>
-                <option value="12" style="background-color: #fff;">Evento</option>
-                <option value="13" style="background-color: #fff;">Radio y Televisión</option>
-                <option value="14" style="background-color: #fff;">Alumni</option>
-                <option value="15" style="background-color: #fff;">Publicación en Medios</option>
-                <option value="16" style="background-color: #fff;">Snapchat</option>
+          <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+            <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Contraseña</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+            <td style="width:66%;color:white;">
+              <span  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="">
+                <input style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="password" class="input" type="password" name="password"
+                required
+                oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caractéres')"
+                oninput="setCustomValidity('')"
+                pattern=".{8,}"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Esta será tu contraseña para el acceso a nuestro portal de oportunidades.</label>
+              </span>
+            </td>
+          </tr>
 
-              </select>
-              <img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona el medio por el cual te enteraste de este programa.</label>
-            </label>
-          </td>
-        </tr>
+          <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+            <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Número Telefónico</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+            <td> 
+              <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Número de teléfono o celular">
+                <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  id="phone" class="input" type="text" name="phone" maxlength="50"
+                required
+                oninvalid="this.setCustomValidity('Ingresa un número telefónico valido')"
+                oninput="setCustomValidity('')"
+                pattern="\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})"><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Ingresa tu número número de teléfono o celular con LADA.</label>
+              </label>
+            </td>
+          </tr>
 
-        <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/" id="programa">
-          <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Interesado en:</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
-          <td>
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona el tipo de programa que más te interesa">
-              <select id="interested_in" name="interested_in" title="Selecciona el tipo de programa que más te interesa."  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  >
-                <option value="1" style="background-color:#fff;">Voluntario Global</option>
+          <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+          <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+            <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Canal</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+            <td>
+              <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Medio por el cual te enteraste de este programa">
+                <select id="source" name="source" title=""  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  >
+                  <option disabled selected value>Selecciona una opción</option>
+                  <option value="1" style="background-color: #fff;">Publicidad en Facebook</option>
+                  <option value="2" style="background-color: #fff;">Página de Facebook</option>
+                  <option value="3" style="background-color: #fff;">Sitio web</option>
+                  <option value="4" style="background-color: #fff;">Twitter</option>
+                  <option value="5" style="background-color: #fff;">Instagram</option>
+                  <option value="6" style="background-color: #fff;">LinkedIn</option>
+                  <option value="8" style="background-color: #fff;">Amigos ó Familia</option>
+                  <option value="9" style="background-color: #fff;">Soy Miembro de AIESEC</option>
+                  <option value="10" style="background-color: #fff;">Publicidad en Universidad</option>
+                  <option value="11" style="background-color: #fff;">Stand en Universidad</option>
+                  <option value="12" style="background-color: #fff;">Evento</option>
+                  <option value="13" style="background-color: #fff;">Radio y Televisión</option>
+                  <option value="14" style="background-color: #fff;">Alumni</option>
+                  <option value="15" style="background-color: #fff;">Publicación en Medios</option>
+                  <option value="16" style="background-color: #fff;">Snapchat</option>
+
+                </select>
+                <img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona el medio por el cual te enteraste de este programa.</label>
+              </label>
+            </td>
+          </tr>
+
+          <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+          <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/" id="programa">
+            <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Interesado en:</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+            <td>
+              <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona el tipo de programa que más te interesa">
+                <select id="interested_in" name="interested_in" title="Selecciona el tipo de programa que más te interesa."  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  >
+                  <option value="1" style="background-color:#fff;">Voluntario Global</option>
              <!--    <option value="ogt" style="background-color: #fff;">Talento Global</option> 
              <option value="ogt-GE" style="background-color: #fff;">Emprendedor Global</option> -->
            </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Experiencia de voluntariado de corta duración.</label>
@@ -149,7 +155,7 @@
       <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 id="lc_label" style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Entidad Local</h6>  </td>
       <td style="width:66%;">
         <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Entidad local más cercana que te brindará apoyo durante tu proceso">
-          <input class="readonly"  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"   id="localcommittee" name="localcommittee" title="Nombre de la entidad local más cercana." type="text" readonly /><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);"  class="uni"><label class="toolTip" style="">Está es la entidad local que te apoyará durante tu proceso.</label>
+          <input class="readonly"  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"   id="localcommittee" name="localcommittee" title="Nombre de la entidad local más cercana." type="text" value="Aguascalientes" readonly /><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);"  class="uni"><label class="toolTip" style="">Está es la entidad local que te apoyará durante tu proceso.</label>
         </label>
       </td>
     </tr>
@@ -168,6 +174,8 @@
     <input type="hidden" name="website_url" value="{website_url}">
   </table>
   <div id="error" class="error" style="display:none;"><p></p></div>
+  <div class="g-recaptcha" data-sitekey="6Ld8uAkUAAAAAMqyl5rjRbaUSP6CQlGzSAAy1pqZ" align="center"></div>
+
   <div id="submit" style="padding:0px;background: transparent;text-align:center;">
     <input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="Regístrate" style="width: 50%; margin: 6px 0px; padding: 16px; background: #037ff3;border-radius: 5px;">
   </div>
@@ -185,6 +193,7 @@ jQuery(document).ready(function($){
   jQuery('#lc_label').hide();
   jQuery('.uni').hide();
 
+    jQuery('#localcommittee').val('Aguascalientes');
 
     //jQuery(".regform").validationEngine();
     jQuery('#university').change(function($) {
@@ -209,3 +218,4 @@ function unhover(element) {
   element.setAttribute('src', 'http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png');
 }
 </script>
+</body>
