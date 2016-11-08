@@ -19,14 +19,19 @@ defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 function expa_form( $atts ) {
     $a = shortcode_atts( array(
         'program' => '',
-    ), $atts );
+        ), $atts );
     
     $configs = include('config.php');
-        
-    $form = file_get_contents('form.html',TRUE);
-    
-    $leads_json = plugins_url('leads.json', __FILE__ );
 
+    $form = file_get_contents('form.html',TRUE);
+    //states
+    $leads_json_state = plugins_url('leads_state.json', __FILE__ );
+
+    $json_state = file_get_contents($leads_json_state, false, stream_context_create($arrContextOptions)); 
+    $states = json_decode($json_state);  
+    //states
+
+    $leads_json = plugins_url('leads.json', __FILE__ );
     $json = file_get_contents($leads_json, false, stream_context_create($arrContextOptions)); 
     $leads = json_decode($json); 
     $option_list = "";
@@ -42,6 +47,7 @@ function expa_form( $atts ) {
     $form = str_replace("{name}",$configs["name"],$form);
     $form = str_replace("{surname}",$configs["surname"],$form);
     $form = str_replace("{e-mail}",$configs["e-mail"],$form);
+    $form = str_replace("{leads_state}",$json_state ,$form);
     $form = str_replace("{password}",$configs["password"],$form);
     $form = str_replace("{lead-name}",$configs["lead-name"],$form);
     $form = str_replace("{lc}",$configs["lc"],$form);       
@@ -53,7 +59,7 @@ function expa_form( $atts ) {
     if($_GET["thank_you"]==="true"){
         return $configs["thank-you-message"]; 
     } elseif ($_GET["error"]!=""){
-        
+
         $form = str_replace('<div id="error" class="error"><p></p></div>','<div id="error" class="error"><p>'.$_GET["error"].'</p></div>',$form);
         return $form;    
     }
@@ -69,12 +75,17 @@ add_shortcode( 'expa-form', 'expa_form' );
 function expa_form_ogt( $atts ) {
     $a = shortcode_atts( array(
         'program' => '',
-    ), $atts );
+        ), $atts );
     
     $configs = include('config.php');
-        
+
     $form = file_get_contents('form_gt.html',TRUE);
-    
+    //states
+    $leads_json_state = plugins_url('leads_state.json', __FILE__ );
+
+    $json_state = file_get_contents($leads_json_state, false, stream_context_create($arrContextOptions)); 
+    $states = json_decode($json_state);  
+    //states
     $leads_json = plugins_url('leads.json', __FILE__ );
 
     $json = file_get_contents($leads_json, false, stream_context_create($arrContextOptions)); 
@@ -95,6 +106,8 @@ function expa_form_ogt( $atts ) {
     $form = str_replace("{password}",$configs["password"],$form);
     $form = str_replace("{lead-name}",$configs["lead-name"],$form);
     $form = str_replace("{lc}",$configs["lc"],$form);       
+    $form = str_replace("{leads_state}",$json_state ,$form);
+
     $form = str_replace("{phone}",$configs["phone"],$form);
     $form = str_replace("{source}",$configs["source"],$form);
     $form = str_replace("{interested_in}",$configs["interested_in"],$form);
@@ -103,7 +116,7 @@ function expa_form_ogt( $atts ) {
     if($_GET["thank_you"]==="true"){
         return $configs["thank-you-message"]; 
     } elseif ($_GET["error"]!=""){
-        
+
         $form = str_replace('<div id="error" class="error"><p></p></div>','<div id="error" class="error"><p>'.$_GET["error"].'</p></div>',$form);
         return $form;    
     }
@@ -119,12 +132,17 @@ add_shortcode( 'expa-form-ogt', 'expa_form_ogt' );
 function expa_form_ogv( $atts ) {
     $a = shortcode_atts( array(
         'program' => '',
-    ), $atts );
+        ), $atts );
     
     $configs = include('config.php');
-        
+
     $form = file_get_contents('form_gv.html',TRUE);
-    
+        //states
+    $leads_json_state = plugins_url('leads_state.json', __FILE__ );
+
+    $json_state = file_get_contents($leads_json_state, false, stream_context_create($arrContextOptions)); 
+    $states = json_decode($json_state);  
+    //states
     $leads_json = plugins_url('leads.json', __FILE__ );
 
     $json = file_get_contents($leads_json, false, stream_context_create($arrContextOptions)); 
@@ -144,7 +162,9 @@ function expa_form_ogv( $atts ) {
     $form = str_replace("{e-mail}",$configs["e-mail"],$form);
     $form = str_replace("{password}",$configs["password"],$form);
     $form = str_replace("{lead-name}",$configs["lead-name"],$form);
-    $form = str_replace("{lc}",$configs["lc"],$form);       
+    $form = str_replace("{lc}",$configs["lc"],$form);   
+    $form = str_replace("{leads_state}",$json_state ,$form);
+    
     $form = str_replace("{phone}",$configs["phone"],$form);
     $form = str_replace("{source}",$configs["source"],$form);
     $form = str_replace("{interested_in}",$configs["interested_in"],$form);
@@ -153,7 +173,7 @@ function expa_form_ogv( $atts ) {
     if($_GET["thank_you"]==="true"){
         return $configs["thank-you-message"]; 
     } elseif ($_GET["error"]!=""){
-        
+
         $form = str_replace('<div id="error" class="error"><p></p></div>','<div id="error" class="error"><p>'.$_GET["error"].'</p></div>',$form);
         return $form;    
     }

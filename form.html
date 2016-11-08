@@ -95,11 +95,22 @@
     </td>
   </tr>
 
+
+  <tr>
+    <td style="vertical-align: top;padding-top: 15px; width:30%; padding-left: 5%;text-align: right;"  class="input-name"><h6 style="font-weight:normal; display:inline;font-style:inherit;">Selecciona tu estado</h6>  <span class="required">*</span></td>
+    <td>
+      <select id="state" name="state" title="Selecciona tu estado"  style="border:1px solid #037Ef3; width: 95%;"  >
+
+
+      </select>
+    </td>
+  </tr>
+
   <tr>
     <td style="vertical-align: top;padding-top: 15px; width:30%; padding-left: 5%;text-align: right;"  class="input-name"><h6 style="font-weight:normal; display:inline;font-style:inherit;">{lead-name}</h6>  <span class="required">*</span></td>
     <td>
       <select id="university" name="university" title="{lead-name}"  style="border:1px solid #037Ef3; width: 95%;"  >
-        {leads-option-list}
+
 
       </select>
     </td>
@@ -143,23 +154,47 @@
 <script type='text/javascript'>
 //var $j = jQuery.noConflict();
 jQuery(document).ready(function($){
+  console.log("antes");
+  var data = {leads_state};
+  for (var key in data) {
+    console.log(key);
+    jQuery('#state').append('<option value="' + key + '">' + key + '</option>')
+  }
 
-
-
+  console.log("despues");
   
   var myJsonString = getLeads('{path-leads-json}');
-    //jQuery(".regform").validationEngine();
-    jQuery('#localcommittee').val('Aguascalientes');
 
-    jQuery('#university').change(function($) {
-    //    $('#localcommittee').val((mapLC($('#university').val())));
-    jQuery('#localcommittee').val(mapLC(jQuery('#university').val()));
+  //valores default
+  jQuery('#localcommittee').val('Aguascalientes');
+  for (var key in data['Aguascalientes']) {
+    console.log(key);
+    jQuery('#university').append('<option value="' + key + '">' + key + '</option>')
+  }
+  //valores default
+
+  //event funciotns
+
+  jQuery('#state').change(function($) {
+    jQuery('#university').empty();
+    for (var key in data[jQuery('#state').val()]) {
+      console.log(key);
+
+      jQuery('#university').append('<option value="' + key + '">' + key + '</option>')
+          jQuery('#localcommittee').val(data[jQuery('#state').val()][jQuery('#university').val()]);
+
+    }
   });
-    
-    jQuery('#submit_button').click(function($){
-      jQuery('#submit_button').attr('clicked', 'true');
-      
-    });
+
+  jQuery('#university').change(function($) {
+
+    jQuery('#localcommittee').val(data[jQuery('#state').val()][jQuery('#university').val()]);
   });
+
+  jQuery('#submit_button').click(function($){
+    jQuery('#submit_button').attr('clicked', 'true');
+
+  });
+});
 </script>
 </body>
