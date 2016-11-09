@@ -4,6 +4,8 @@ include_once '/lib/podio-php-4.3.0/PodioAPI.php';
 //get Response library
 require_once '/home/webmaster/wp-config-files/GetResponseAPI3.class.php';
 require '/home/webmaster/wp-config-files/vendor/google/recaptcha/src/autoload.php';
+require '/home/webmaster/wp-config-files/gis_lib/vendor/autoload.php';
+
 //private keys config files
 $configs_external = include('/home/webmaster/wp-config-files/wp_login_config.php');
 //plugin configs
@@ -140,7 +142,7 @@ curl_errors($ch2);
 // Check if any error occurred
 if (curl_errno($ch2)) {
     
-    header("Location: http://aiesec.org.mx/registro_no");
+    //header("Location: http://aiesec.org.mx/registro_no");
     return;
 }
 
@@ -174,6 +176,43 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 
 
 
+//SESION EXPA campos extra
+////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+
+
+$user = new \GISwrapper\AuthProviderCombined(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']));
+
+
+echo '<br>';echo '<br>';
+//echo $user.getToken();
+$gis = new \GISwrapper\GIS($user);
+$user_id =$gis->current_person->get()->person->id;
+$session_token=$user->getToken();
+
+//getting the current person
+$url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
+echo $url;
+$ch = curl_init(); // such as http://example.com/example.xml
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+$data = curl_exec($ch);
+var_dump($data);
+curl_close($ch);
+
+
+//SESION EXPA campos extra
+////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+/////SESION EXPA campos extra
+
+
 
 
 ///////////PODIO Start /////////
@@ -181,7 +220,7 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
-
+/*
 //Podio submit
 // This is to test the conection with the podio API and the authentication
 Podio::setup('aiesec-mexico', $configs_external['podio_key']);
@@ -253,7 +292,7 @@ catch (PodioError $e) {
    
     header("Location: http://aiesec.org.mx/registro_no");
 }
-
+*/
 
 ////////PODIO END /////////
 ////////PODIO END /////////
@@ -359,7 +398,7 @@ $getresponse->addContact(array(
 ////////////////getresponse ////////////////////////
 
 
-header("Location: http://aiesec.org.mx/registro/?thank_you=true");
+//header("Location: http://aiesec.org.mx/registro/?thank_you=true");
 
 
 
