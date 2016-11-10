@@ -17,7 +17,7 @@ $configs = include('config.php');
 ////captcah verification
 /////captcah verification
 /////captcah verification
-/*
+
 
 $recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
 
@@ -28,7 +28,7 @@ if (!$resp->isSuccess()) {
 
     return;
 }
-*/
+
 //captcah verification
 ////captcah verification
 /////captcah verification
@@ -142,7 +142,7 @@ curl_errors($ch2);
 // Check if any error occurred
 if (curl_errno($ch2)) {
 
-    //header("Location: http://aiesec.org.mx/registro_no");
+    header("Location: http://aiesec.org.mx/registro_no");
     return;
 }
 
@@ -183,7 +183,7 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 /////SESION EXPA campos extra
 /////SESION EXPA campos extra
 
-echo 'ka222';
+
 $user = new \GISwrapper\AuthProviderCombined(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']));
 
 //GETTING THE USER CONTACT INFO 
@@ -207,7 +207,7 @@ curl_close($ch);
 //UPDATING THE USER CONTACT INFO (phone)
 //UPDATING THE USER CONTACT INFO (phone)
 ////UPDATING THE USER CONTACT INFO (phone)
-echo 'ka1';
+
 $url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
 $ch = curl_init(); // such as http://example.com/example.xml
 $headers = array('Content-Type: application/json');
@@ -218,28 +218,30 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $contact_info);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $data = curl_exec($ch);
 curl_close($ch);
-echo 'ka2';
+
 
 //UPDATING THE USER CONTACT INFO (program)
 //UPDATING THE USER CONTACT INFO (program)
 ////UPDATING THE USER CONTACT INFO (program)
 
 //this fields are required in the update
+$year = intval(date('Y'));
 
-$early_date = json_decode($data,true)['profile']['earliest_start_date'];
+$early_date = date();
 $late_date = json_decode($data,true)['profile']['latest_end_date'];
-
+echo $early_date ;
+echo $late_date ;
 if (intval($_POST['interested_in'])==1){
-$profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.$early_date.'","latest_end_date":"'.$late_date.'","selected_programmes":[1],"interested_in":"both"}}}';
+    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.strval($year)."-".date('m-d').'","latest_end_date":"'.strval($year+3)."-".date('m-d').'","selected_programmes":[1],"interested_in":"both"}}}';
 
 }else{
-    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.$early_date.'","latest_end_date":"'.$late_date.'","selected_programmes":[2],"interested_in":"both"}}}';
+    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.strval($year)."-".date('m-d').'","latest_end_date":"'.strval($year+3)."-".date('m-d').'","selected_programmes":[2],"interested_in":"both"}}}';
 
 }
- 
 
 
-echo $profile;
+
+
 $ch = curl_init(); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -247,6 +249,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $profile);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $data = curl_exec($ch);
+var_dump($data);
 curl_close($ch);
 
 
@@ -266,7 +269,7 @@ curl_close($ch);
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
-/*
+
 //Podio submit
 // This is to test the conection with the podio API and the authentication
 Podio::setup('aiesec-mexico', $configs_external['podio_key']);
@@ -338,7 +341,7 @@ catch (PodioError $e) {
    
     header("Location: http://aiesec.org.mx/registro_no");
 }
-*/
+
 
 ////////PODIO END /////////
 ////////PODIO END /////////
@@ -371,8 +374,8 @@ function get_client_ip() {
     else if(getenv('HTTP_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_FORWARDED_FOR');
     else if(getenv('HTTP_FORWARDED'))
-       $ipaddress = getenv('HTTP_FORWARDED');
-   else if(getenv('REMOTE_ADDR'))
+     $ipaddress = getenv('HTTP_FORWARDED');
+ else if(getenv('REMOTE_ADDR'))
     $ipaddress = getenv('REMOTE_ADDR');
 else
     $ipaddress = 'UNKNOWN';
@@ -444,7 +447,7 @@ $getresponse->addContact(array(
 ////////////////getresponse ////////////////////////
 
 
-//header("Location: http://aiesec.org.mx/registro/?thank_you=true");
+header("Location: http://aiesec.org.mx/registro/?thank_you=true");
 
 
 
