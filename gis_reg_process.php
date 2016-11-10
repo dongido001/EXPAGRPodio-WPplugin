@@ -17,7 +17,7 @@ $configs = include('config.php');
 ////captcah verification
 /////captcah verification
 /////captcah verification
-
+/*
 
 $recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
 
@@ -28,7 +28,7 @@ if (!$resp->isSuccess()) {
 
     return;
 }
-
+*/
 //captcah verification
 ////captcah verification
 /////captcah verification
@@ -141,7 +141,7 @@ $result = curl_exec($ch2);
 curl_errors($ch2);
 // Check if any error occurred
 if (curl_errno($ch2)) {
-    
+
     //header("Location: http://aiesec.org.mx/registro_no");
     return;
 }
@@ -183,26 +183,72 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 /////SESION EXPA campos extra
 /////SESION EXPA campos extra
 
-
+echo 'ka222';
 $user = new \GISwrapper\AuthProviderCombined(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']));
 
-
-echo '<br>';echo '<br>';
-//echo $user.getToken();
+//GETTING THE USER CONTACT INFO 
+////GETTING THE USER CONTACT INFO 
+/////GETTING THE USER CONTACT INFO 
 $gis = new \GISwrapper\GIS($user);
 $user_id =$gis->current_person->get()->person->id;
 $session_token=$user->getToken();
-
 //getting the current person
 $url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
-echo $url;
 $ch = curl_init(); // such as http://example.com/example.xml
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $data = curl_exec($ch);
-var_dump($data);
+$contact_info  = json_decode($data,true)["contact_info"];
+$contact_info["phone"]=htmlspecialchars($_POST['phone']);
+$contact_info = '{"person":{"contact_info":'.json_encode($contact_info).'}}';
 curl_close($ch);
+
+//UPDATING THE USER CONTACT INFO (phone)
+//UPDATING THE USER CONTACT INFO (phone)
+////UPDATING THE USER CONTACT INFO (phone)
+echo 'ka1';
+$url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
+$ch = curl_init(); // such as http://example.com/example.xml
+$headers = array('Content-Type: application/json');
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+curl_setopt($ch, CURLOPT_POSTFIELDS, $contact_info);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$data = curl_exec($ch);
+curl_close($ch);
+echo 'ka2';
+
+//UPDATING THE USER CONTACT INFO (program)
+//UPDATING THE USER CONTACT INFO (program)
+////UPDATING THE USER CONTACT INFO (program)
+
+//this fields are required in the update
+
+$early_date = json_decode($data,true)['profile']['earliest_start_date'];
+$late_date = json_decode($data,true)['profile']['latest_end_date'];
+
+if (intval($_POST['interested_in'])==1){
+$profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.$early_date.'","latest_end_date":"'.$late_date.'","selected_programmes":[1],"interested_in":"both"}}}';
+
+}else{
+    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.$early_date.'","latest_end_date":"'.$late_date.'","selected_programmes":[2],"interested_in":"both"}}}';
+
+}
+ 
+
+
+echo $profile;
+$ch = curl_init(); // such as http://example.com/example.xml
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+curl_setopt($ch, CURLOPT_POSTFIELDS, $profile);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$data = curl_exec($ch);
+curl_close($ch);
+
 
 
 //SESION EXPA campos extra
@@ -410,3 +456,6 @@ function curl_errors($ch)
 
 }
 ?>
+
+
+
