@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <script src='https://www.google.com/recaptcha/api.js'></script>
-  <style >
+  <style type="text/css">
   .toolTip{
     background: rgba(0,0,0,0.7);
     border: 2px solid #000;
@@ -19,6 +19,7 @@
     padding: 0px 15px;
     max-width: 80%;
   }
+
   #first_name:hover + label{
    display:block;
  }
@@ -35,8 +36,8 @@
 </head>
 <body>
   <div class="col-lg-12 col-sm-10 col-xs-10"  >
-    <form action="{path-gis_reg_process}" method="POST" background="OGT-FinalNoTT.png" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent; width:75%; margin-left:10%;">
-      <table class="sighnup-form-table" style="background-color: rgba(10, 142, 160, 0.75);    border-radius: 7px;">
+    <form action="{path-gis_reg_process}" method="POST" background="OGV-Final3-sinTT.png" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent; width:75%; margin-left:10%;">
+      <table class="sighnup-form-table" style="background-color: rgba(48, 195, 158, 0.75);    border-radius: 7px;">
         <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
         <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
           <td style="vertical-align: top;padding-top: 15px; padding-right: 5px; width:25%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Nombre</h6> <span class="required" style="color:#FFF !important;">*</span></td>
@@ -135,77 +136,79 @@
             <td>
               <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona el tipo de programa que más te interesa">
                 <select id="interested_in" name="interested_in" title="Selecciona el tipo de programa que más te interesa."  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"  >
-                 
-                 <option value="2" style="background-color: #fff;">Talento Global</option> 
-               </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Experiencia profesional de Corta y Larga duraci&oacute;n.</label>
-             </label>
-           </td>
-         </tr> 
-         <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Estado</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
-          <td>
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona una de nuestras universidades o estados">
-              <select id="state" name="state" title="Universidad"  style="border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px; margin-bottom: 20px;"  >
-                
-              </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona tu estados.</label>
-            </label>
-          </td>
-        </tr>
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Universidad</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
-          <td>
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona una de nuestras universidades o estados">
-              <select id="university" name="university" title="Universidad"  style="border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px; margin-bottom: 20px;"  >
-                
-              </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona una de nuestras universidades o estados.</label>
-            </label>
-          </td>
-        </tr>
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/" hidden="true">
-          <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 id="lc_label" style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Entidad Local</h6>  </td>
-          <td style="width:66%;">
-            <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Entidad local más cercana que te brindará apoyo durante tu proceso">
-              <input class="readonly"  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"   id="localcommittee" name="localcommittee" title="Nombre de la entidad local más cercana." type="text" value="Aguascalientes" readonly /><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);"  class="uni"><label class="toolTip" style="">Está es la entidad local que te apoyará durante tu proceso.</label>
-            </label>
-          </td>
-        </tr>
-        <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
-          <td></td>
-          <td class="check-holder" colspan="1">
-            <input checked="" id="terms" type="checkbox" style="display: inline;">
-            <label for="terms" style="display: inline;">
-              <span class="required" style="display: inline;color:#fff !important">
-                He leído y acepto los <u><a href="https://opportunities.aiesec.org/assets/terms.pdf" target="_blank" style="color: #fff;"> términos y condiciones.</a></u>
-              </span>
-            </label>
-          </td>
-        </tr>
-        <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
-        <input type="hidden" name="website_url" value="{website_url}">
-      </table>
-      <div id="error" class="error" style="display:none;"><p></p></div>
-      <div class="g-recaptcha" data-sitekey="6Ld8uAkUAAAAAMqyl5rjRbaUSP6CQlGzSAAy1pqZ" align="center"></div>
-      <div id="submit" style="padding:0px;background: transparent;text-align:center;">
-        <input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="Regístrate" style="width: 50%; margin: 6px 0px; padding: 16px; background: #037ff3;border-radius: 5px;">
-      </div>
-    </form>
+                  <option value="5" style="background-color:#fff;">Emprendedor Global</option>
+             <!--    <option value="ogt" style="background-color: #fff;">Talento Global</option> 
+             <option value="ogt-GE" style="background-color: #fff;">Emprendedor Global</option> -->
+           </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Experiencia de voluntariado de corta duración.</label>
+         </label>
+       </td>
+     </tr> 
+     <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Estado</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td>
+        <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona una de nuestras universidades o estados">
+          <select id="state" name="state" title="Universidad"  style="border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px; margin-bottom: 20px;"  >
+
+          </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona tu estados.</label>
+        </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:25%; padding-right: 5px;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Universidad</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td>
+        <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona una de nuestras universidades o estados">
+          <select id="university" name="university" title="Universidad"  style="border:1px solid #037Ef3; width: 80%;margin-right: 5px; display: inline;border-radius: 5px; margin-bottom: 20px;"  >
+
+          </select><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);" ><label class="toolTip" style="">Selecciona una de nuestras universidades o estados.</label>
+        </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/" hidden="true">
+      <td style="vertical-align: top;padding-top: 15px; width:25%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 id="lc_label" style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Entidad Local</h6>  </td>
+      <td style="width:66%;">
+        <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Entidad local más cercana que te brindará apoyo durante tu proceso">
+          <input class="readonly"  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 80%;margin-right: 5px; display: inline;border-radius: 5px;"   id="localcommittee" name="localcommittee" title="Nombre de la entidad local más cercana." type="text" value="Aguascalientes" readonly /><img style="width:20px;vertical-align:middle;"  src="http://test.aiesec.org.mx/wp-content/plugins/EXPAregistrationWPplugin-master/help.png" id="TT" onmouseover="hover(this);" onmouseout="unhover(this);"  class="uni"><label class="toolTip" style="">Está es la entidad local que te apoyará durante tu proceso.</label>
+        </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td></td>
+      <td class="check-holder" colspan="1">
+        <input checked="" id="terms" type="checkbox" style="display: inline;">
+        <label for="terms" style="display: inline;">
+          <span class="required" style="display: inline;color:#fff !important">
+            He leído y acepto los <u><a href="https://opportunities.aiesec.org/assets/terms.pdf" target="_blank" style="color: #fff;"> términos y condiciones.</a></u>
+          </span>
+        </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
+    <input type="hidden" name="website_url" value="{website_url}">
+  </table>
+  <div id="error" class="error" style="display:none;"><p></p></div>
+  <div class="g-recaptcha" data-sitekey="6Ld8uAkUAAAAAMqyl5rjRbaUSP6CQlGzSAAy1pqZ" align="center"></div>
+
+  <div id="submit" style="padding:0px;background: transparent;text-align:center;">
+    <input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="Regístrate" style="width: 50%; margin: 6px 0px; padding: 16px; background: #037ff3;border-radius: 5px;">
   </div>
+</form>
+</div>
 
 
-  <script type='text/javascript' src='{path-gis_lcMapper}'></script>
-  <script type='text/javascript'>
+<script type='text/javascript' src='{path-gis_lcMapper}'></script>
+<script type='text/javascript'>
 
-  jQuery(document).ready(function($){
-    console.log("antes");
-    var data = {leads_state};
-    for (var key in data) {
-      console.log(key);
-      jQuery('#state').append('<option value="' + key + '">' + key + '</option>')
-    }
+jQuery(document).ready(function($){
+ console.log("antes");
+ var data = {leads_state};
+ for (var key in data) {
+  console.log(key);
+  jQuery('#state').append('<option value="' + key + '">' + key + '</option>')
+}
 
-    console.log("despues");
+console.log("despues");
 
-    var myJsonString = getLeads('{path-leads-json}');
+var myJsonString = getLeads('{path-leads-json}');
 
   //valores default
   jQuery('#localcommittee').val('Aguascalientes');
@@ -233,28 +236,12 @@
     jQuery('#localcommittee').val(data[jQuery('#state').val()][jQuery('#university').val()]);
   });
 
-/*    var myJsonString = getLeads('{path-leads-json}');
-
-    jQuery('#localcommittee').hide();
-    jQuery('#lc_label').hide();
-    jQuery('.uni').hide();
-    jQuery('#localcommittee').val('Aguascalientes');
 
 
-    //jQuery(".regform").validationEngine();
-    jQuery('#university').change(function($) {
-    //    $('#localcommittee').val((mapLC($('#university').val())));
-    jQuery('#localcommittee').val(mapLC(jQuery('#university').val()));
-    jQuery('#localcommittee').show('slow');
-    jQuery('#lc_label').show('slow');
-    jQuery('.uni').show('slow');
+  jQuery('#submit_button').click(function($){
+    jQuery('#submit_button').attr('clicked', 'true');
 
-  });*/
-
-jQuery('#submit_button').click(function($){
-  jQuery('#submit_button').attr('clicked', 'true');
-
-});
+  });
 });
 
 function hover(element) {

@@ -1,4 +1,5 @@
 <?php
+
 //podio library
 include_once '/lib/podio-php-4.3.0/PodioAPI.php';
 //get Response library
@@ -11,7 +12,8 @@ $configs_external = include('/home/webmaster/wp-config-files/wp_login_config.php
 //plugin configs
 $configs = include('config.php');
 
-
+#default is gv for hte campaing in get response
+$gr_campaing_id = $configs_external['gr_campaign_ogv_id'];
 
 //captcah verification
 ////captcah verification
@@ -84,11 +86,11 @@ $lc_gis_map = json_decode($json,true);
 
 
 $user_lc = $lc_gis_map[$_POST['localcommittee']];
-
+$program = intval($_POST['interested_in']);
 
 // structure data for GIS
 // form structure taken from actual form submission at auth.aiesec.org/user/sign_in
-
+/*
 $fields = array(
     'authenticity_token' => htmlspecialchars($gis_token),
     'user[email]' => htmlspecialchars($_POST['email']),
@@ -101,6 +103,16 @@ $fields = array(
     'user[lc_input]' => $user_lc,
     'user[lc]' => $user_lc,
     'commit' => 'REGISTER'
+    );*/
+$fields = array( 'user'=>array(
+    'email' => htmlspecialchars($_POST['email']),
+    'first_name' => htmlspecialchars($_POST['first_name']),
+    'last_name' => htmlspecialchars($_POST['last_name']),
+    'password' => htmlspecialchars($_POST['password']),
+    'phone' => htmlspecialchars($_POST['phone']),
+    'lc' => $user_lc,
+    'country_code' => '+52'
+    )
     );
 
 
@@ -116,15 +128,17 @@ foreach($fields as $key=>$value) { $fields_string .= $key.'='.urlencode($value).
 rtrim($fields_string, '&');
 $innerHTML = "";
 // UNCOMMENT THIS BLOCK: to enable real GIS form submission
-
+$fieldsjs = json_encode($fields);
 
 // POST form with curl
-$url = "https://auth.aiesec.org/users";
+$url = "https://auth.aiesec.org/users.json";
 $ch2 = curl_init();
 curl_setopt($ch2, CURLOPT_URL, $url);
-curl_setopt($ch2, CURLOPT_POST, count($fields));
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $fields_string);
-
+curl_setopt($ch2, CURLOPT_POST, count($fieldsjs));
+curl_setopt($ch2, CURLOPT_POSTFIELDS, $fieldsjs);
+curl_setopt($ch2, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json')                                                                       
+);      
 curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE);
 // give cURL the SSL Cert for Salesforce
 curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false); // TODO: FIX SSL - VERIFYPEER must be set to true
@@ -137,6 +151,8 @@ curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false); // TODO: FIX SSL - VERIFYPEER 
 // curl_setopt($ch2, CURLOPT_SSL_VERIFYHOST, 2);
 // curl_setopt($ch2, CURLOPT_CAINFO, getcwd() . "\CACerts\VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt");
 $result = curl_exec($ch2);
+
+$ep_id = json_decode($result,true)['person_id']; 
 
 curl_errors($ch2);
 // Check if any error occurred
@@ -176,90 +192,6 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 
 
 
-//SESION EXPA campos extra
-////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
-
-
-$user = new \GISwrapper\AuthProviderCombined(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']));
-
-//GETTING THE USER CONTACT INFO 
-////GETTING THE USER CONTACT INFO 
-/////GETTING THE USER CONTACT INFO 
-$gis = new \GISwrapper\GIS($user);
-$user_id =$gis->current_person->get()->person->id;
-$session_token=$user->getToken();
-//getting the current person
-$url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
-$ch = curl_init(); // such as http://example.com/example.xml
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-$data = curl_exec($ch);
-$contact_info  = json_decode($data,true)["contact_info"];
-$contact_info["phone"]=htmlspecialchars($_POST['phone']);
-$contact_info = '{"person":{"contact_info":'.json_encode($contact_info).'}}';
-curl_close($ch);
-
-//UPDATING THE USER CONTACT INFO (phone)
-//UPDATING THE USER CONTACT INFO (phone)
-////UPDATING THE USER CONTACT INFO (phone)
-
-$url = "https://gis-api.aiesec.org/v2/people/".$user_id."?access_token=".$session_token;
-$ch = curl_init(); // such as http://example.com/example.xml
-$headers = array('Content-Type: application/json');
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
-curl_setopt($ch, CURLOPT_POSTFIELDS, $contact_info);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$data = curl_exec($ch);
-curl_close($ch);
-
-
-//UPDATING THE USER CONTACT INFO (program)
-//UPDATING THE USER CONTACT INFO (program)
-////UPDATING THE USER CONTACT INFO (program)
-
-//this fields are required in the update
-$year = intval(date('Y'));
-
-$early_date = date();
-$late_date = json_decode($data,true)['profile']['latest_end_date'];
-echo $early_date ;
-echo $late_date ;
-if (intval($_POST['interested_in'])==1){
-    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.strval($year)."-".date('m-d').'","latest_end_date":"'.strval($year+3)."-".date('m-d').'","selected_programmes":[1],"interested_in":"both"}}}';
-
-}else{
-    $profile = '{"person":{"profile":{"issues":[],"work_fields":[],"preferred_locations":[],"earliest_start_date":"'.strval($year)."-".date('m-d').'","latest_end_date":"'.strval($year+3)."-".date('m-d').'","selected_programmes":[2],"interested_in":"both"}}}';
-
-}
-
-
-
-
-$ch = curl_init(); // such as http://example.com/example.xml
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
-curl_setopt($ch, CURLOPT_POSTFIELDS, $profile);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$data = curl_exec($ch);
-var_dump($data);
-curl_close($ch);
-
-
-
-//SESION EXPA campos extra
-////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
-/////SESION EXPA campos extra
 
 
 
@@ -282,29 +214,46 @@ $lc_podio_map = json_decode($json_podio_lc,true);
 $user_lc_podio = $lc_podio_map[$_POST['localcommittee']];
 
 //getting the podio Id for each lc
+$uni_podio = 'universidades_podio_state.json';
+
+//since we had too many insittues we change the podio field that we submit of it depending on the lc
+$intitute_name = "instituto-estado";
+//The lcs that are citi/university based : Chihuahua, CDMX, GTO, NL
+$os = array(27,22,5,8,15,17,18,26,23,25,29,30,21,6,12,1,16);
+if (in_array(intval($user_lc_podio), $os)){
+$intitute_name = "instituto";
 $uni_podio = 'universidades_podio.json';
+}
+
 $json_podio_uni = file_get_contents($uni_podio, false, stream_context_create($arrContextOptions)); 
 $uni_podio_map = json_decode($json_podio_uni,true); 
 $user_uni_podio = $uni_podio_map[$_POST['university']];
 
 
-$program = intval($_POST['interested_in']);
-$podio_id = 1;
+//echo strval($user_uni_podio).' fue el que eligio  y el comite era '.$_POST['university'].'<br>';
+$podio_id = intval($configs_external['podio_space_ogv_id']);
 
 try {
 
 //OGV
  if ($program == 1){
-    Podio::authenticate_with_app(intval($configs_external['podio_space_ogv_id']),
-       $configs_external['podio_space_ogv_key']);
+    Podio::authenticate_with_app(intval($configs_external['podio_space_ogv_id']),$configs_external['podio_space_ogv_key']);
     $podio_id = intval($configs_external['podio_space_ogv_id']);
+    $gr_campaing_id = $configs_external['gr_campaign_ogv_id'] ; 
 }
 //OGT
-else {
-    Podio::authenticate_with_app(intval($configs_external['podio_space_ogt_id']), 
-        $configs_external['podio_space_ogt_key']);
+else if ($program == 2){
+    Podio::authenticate_with_app(intval($configs_external['podio_space_ogt_id']),$configs_external['podio_space_ogt_key']);
     $podio_id = intval($configs_external['podio_space_ogt_id']);
+    $gr_campaing_id = $configs_external['gr_campaign_ogt_id'];
 }
+//OGE
+else {
+    Podio::authenticate_with_app(intval($configs_external['podio_space_oge_id']), $configs_external['podio_space_oge_key']);
+    $podio_id = intval($configs_external['podio_space_oge_id']);
+    $gr_campaing_id = $configs_external['gr_campaign_oge_id'];
+}
+
 
 
 $fields = new PodioItemFieldCollection(array(
@@ -314,7 +263,7 @@ $fields = new PodioItemFieldCollection(array(
   new PodioTextItemField(array("external_id" => "numero-telefonico", "values" => $_POST['phone'])),
 
   new PodioCategoryItemField(array("external_id" => "comite-local", "values" => intval($user_lc_podio))),
-  new PodioCategoryItemField(array("external_id" => "institutouniversidad", "values" => intval($user_uni_podio))),
+  new PodioCategoryItemField(array("external_id" => $intitute_name, "values" => intval($user_uni_podio))),
   new PodioCategoryItemField(array("external_id" => "fuente", "values" => intval($_POST['source'])))
   ));
 
@@ -383,18 +332,11 @@ return $ipaddress;
 }
 
 ////////////////GET RESPONSE 
-/*
-*FOR GET RESPONSE 
-*
-*
-*
-
-
-
-
-
-
-
+///////////////////GET RESPONSE 
+///////////////////GET RESPONSE 
+///////////////////GET RESPONSE 
+///////////////////GET RESPONSE 
+////////////////GET RESPONSE 
 
 $getresponse = new GetResponse($configs_external['gr_id']);
 
@@ -402,24 +344,23 @@ $getresponse->enterprise_domain =$configs_external['gr_api_domain'];
 
 $getresponse->api_url = $configs_external['gp_api_url']; //
 
-
-
-
-
-$getresponse->addContact(array(
+$gr_data = array(
     'name'              => $_POST['first_name'].' '.$_POST['last_name'],
     'email'             => $_POST['email'],
     'dayOfCycle'        => 0,
     'campaign'          => array(
-        'campaignId' => (intval($_POST['interested_in']) == 1) ?
-        $configs_external['gp_api_campaign_ogv_id'] : $configs_external['gp_api_campaign_ogt_id']), 
+        'campaignId' => ($gr_campaing_id)), 
     'ipAddress'         => get_client_ip(),
     'customFieldValues' => array(
         array('customFieldId' => 'zU3k6', //universidad
             'value' => array(
                 $_POST['university']
                 )),
-
+        array('customFieldId' => 'zU3vv', //expa_id
+            'value' => array(
+                strval($ep_id)
+                )
+            ),
         array('customFieldId' => 'zU3kZ', //telefono
             'value' => array(
                 '+52'.$_POST['phone']
@@ -441,9 +382,11 @@ $getresponse->addContact(array(
                 )
             )
         )
-    )
-);
-*/
+    );
+
+
+$getresponse->addContact($gr_data);
+
 ////////////////getresponse ////////////////////////
 
 

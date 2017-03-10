@@ -9,16 +9,17 @@
 		"Universidad Tecnológica El Retoño":"Aguascalientes",
 		"UP Bonaterra":"Aguascalientes",
 		"UVM Aguascalientes":"Aguascalientes",
-		"Otro":"Aguascalientes"
+		"Otros":"Virtual Expansions MX"
 		},
-		"Baja california sur":{
-			"Baja california sur":"Hermosillo"
+		"Baja California Sur":{
+			"Baja California Sur":"Virtual Expansions MX"
 			},
-			"Baja california":{
-				"Baja california":"Hermosillo"
+			"Baja California":{
+				"Tijuana":"Hermosillo",
+				"Baja California":"Virtual Expansions MX"
 				},
 				"Campeche":{
-					"Campeche":"Mérida"
+					"Campeche":"Virtual Expansions MX"
 					},
 					"Chiapas":{
 						"Chiapas":"Tabasco"
@@ -35,18 +36,21 @@
 							"Universidad Autónoma de Ciudad Juárez":"Ciudad Juárez",
 							"Universidad de Durango Campus Chihuahua":"Chihuahua",
 							"Universidad Tecnológica de Chihuahua":"Chihuahua",
-							"Otro":"Chihuahua"
+							"Otros":"Virtual Expansions MX"
 							},
 							"Ciudad de México":{
 								"Centro  de diseño, cine y televisión":"ITAM",
 								"Centro De Estudios En Ciencias De La Comunicación":"UP",
 								"Centro Universitario de Mercadotecnia y Publicidad":"ITESM Santa Fe",
 								"Centro Universitario Incarnate Word":"UP",
-								"COLMEX":"UNAM",
+								"COLMEX":"Virtual Expansions MX",
 								"EBC Reforma":"ITESM CEM",
 								"Escuela Libre de Derecho":"ULSA",
+								"FES/UNAM":"UNAM",
 								"Instituto Tecnológico Autónomo de México (ITAM)":"ITAM",
-								"IPN ":"IPN",
+								"IPN - ESCA":"IPN",
+								"IPN - UPIICSA":"IPN",
+								"IPN - Otros":"IPN",
 								"ITESM Ciudad de México":"ITESM CEM",
 								"ITESM Santa Fe":"ITESM Santa Fe",
 								"Tecnológico del Ángel":"ITESM Santa Fe",
@@ -54,38 +58,38 @@
 								"UAM Xochimilco":"UNAM",
 								"ULSA Condesa":"ULSA",
 								"ULSA Facultad de Medicina":"ULSA",
-								"ULSA Nezahualcóyotl":"ULSA",
 								"UNAM":"UNAM",
 								"UNITEC (Todos los campus)":"IPN",
 								"Universidad Anáhuac México Norte":"ITESM Santa Fe",
 								"Universidad Anáhuac México Sur":"ITAM",
 								"Universidad de las Américas Ciudad de México":"ULSA",
-								"Universidad de Londres":"UNAM",
-								"Universidad del Pedregal":"UNAM",
+								"Universidad de Londres":"Virtual Expansions MX",
+								"Universidad del Pedregal":"Virtual Expansions MX",
 								"Universidad Iberoamericana Ciudad de México":"ITAM",
 								"Universidad Intercontinental":"UP" ,
-								"Universidad Latinoamericana":"UNAM",
-								"UP Santa Fe":"UP" ,
-								"UP":"UP",
+								"Universidad Latinoamericana":"Virtual Expansions MX",
+								"UP":"UP" ,
+								"UP Santa Fe":"UP",
 								"UVM Chapultepec":"ULSA",
 								"UVM Coyoacán":"UP" ,
-								"Otro":"Expansions MX"
+								"Otros":"Virtual Expansions MX"
 								},
 								"Coahuila":{
 									"Instituto Tecnológico de Laguna":"La Laguna",
 									"ITESM Laguna":"La Laguna",
 									"ULSA Laguna":"La Laguna",
 									"Universidad Iberoamericana Laguna":"La Laguna",
-									"Otro":"La Laguna"
+									"Otros":"Virtual Expansions MX"
 									},
 									"Colima":{
-										"Colima":"Guadalajara"
+										"Colima":"Virtual Expansions MX"
 										},
 										"Durango":{
 											"Durango":"La Laguna"
 											},
 											"Estado de México":{
 												"Campus Universitario Siglo XXI":"ITESM Toluca",
+												"Centro Universitario de Mercadotecnia y Publicidad":"ITESM Santa Fe",
 												"Centro Universitario Ixtlahuaca":"UAEMEX",
 												"Colegio Mexiquense":"ITESM Toluca",
 												"EBC Tlalnepantla":"ITESM CEM",
@@ -94,13 +98,15 @@
 												"Instituto Universitario Franco Inglés de México":"UAEMEX",
 												"ITESM Estado de México":"ITESM CEM",
 												"ITESM Toluca":"ITESM Toluca",
+												"IUEM":"ITESM Toluca",
+												"Linguatec":"Virtual Expansions MX",
 												"Tec Milenio Toluca":"UAEMEX",
 												"UAEMEX":"UAEMEX",
 												"ULSA Nezahualcóyotl":"ULSA",
 												"UMIN Universidad Mexicana de Innovación en Negocios":"ITESM Toluca",
-												"UNITEC Campus Toluca":"UAEMEX",
+												"UNITEC Campus Toluca":"ITESM Toluca",
 												"UVM Toluca":"ITESM Toluca",
-												"Otro":"Expansions MX"
+												"Otros":"Virtual Expansions MX"
 												},
 												"Guanajuato":{
 													"Benemérita y Centenaria Escuela Normal Oficial de Guanajuato":"Guanajuato",
@@ -115,12 +121,15 @@
 													"ITESI":"Irapuato",
 													"ITESM Irapuato":"Irapuato",
 													"ITESM León":"León",
+													"Linguatec":"Virtual Expansions MX",
+													"Silao":"Virtual Expansions MX",
 													"ULSA Bajío":"León",
 													"UNITESBA":"Celaya",
 													"Universidad Continente Americano":"Celaya",
 													"Universidad de Celaya":"Celaya",
-													"Universidad de Guanajuato Campus León":"León",
 													"Universidad de Guanajuato":"Guanajuato",
+													"Universidad de Guanajuato Campus Celaya":"Celaya",
+													"Universidad de Guanajuato Campus León":"León",
 													"Universidad de León":"León",
 													"Universidad Iberoamericana León":"León",
 													"Universidad Lasallista Benavente":"Celaya",
@@ -131,102 +140,106 @@
 													"Universidad Tecnológica del Centro de México":"Celaya",
 													"Universidad Tecnólogica Laja Bajio":"Celaya",
 													"UPN León":"León",
-													"Otro":"Guanajuato"
+													"Otros":"Virtual Expansions MX"
 													},
 													"Guerrero":{
-														"Guerrero":"Cuernavaca"
+														"Guerrero":"Virtual Expansions MX"
 														},
 														"Hidalgo":{
-															"Otro":"ITESM Toluca"
+															"Hidalgo":"ITESM Toluca"
 															},
 															"Jalisco":{
 																"Instituto Tecnológico Superior de Zapopan (ITSZ)":"Guadalajara",
 																"ITESM Guadalajara":"Guadalajara",
 																"ITESO":"Guadalajara",
+																"Linguatec":"Virtual Expansions MX",
 																"UDG":"Guadalajara",
 																"Universidad del Valle de Atemajac (UNIVA)":"Guadalajara",
 																"UP Guadalajara":"Guadalajara",
-																"Otro":"Guadalajara"
+																"Otros":"Virtual Expansions MX"
 																},
 																"Michoacán":{
 																	"Michoacán":"Querétaro"
 																	},
 																	"Morelos":{
 																		"ITESM Cuernavaca":"Cuernavaca",
+																		"Linguatec":"Virtual Expansions MX",
 																		"Tec Milenio Cuernavaca":"Cuernavaca",
-																		"UAEM":"Cuernavaca" ,
-																		"ULSA":"Cuernavaca" ,
-																		"UNINTER":"Cuernavaca" ,
-																		"UPEMOR":"Cuernavaca" ,
-																		"UTEZ":"Cuernavaca" ,
-																		"Otro":"Cuernavaca"
+																		"UAEM":"Cuernavaca",
+																		"ULSA":"Cuernavaca",
+																		"UNINTER":"Cuernavaca",
+																		"UPEMOR":"Cuernavaca",
+																		"UTEZ":"Cuernavaca",
+																		"Otros":"Virtual Expansions MX"
 																		},
 																		"Nayarit":{
 																			"Nayarit":"Guadalajara" 
 																			},
 																			"Nuevo León":{
+																				"Centro de Estudios Superiores de Diseño de Monterrey (CEDIM)":"ITESM Monterrey",
 																				"ITESM Monterrey":"ITESM Monterrey",
 																				"Tec Milenio Monterrey":"ITESM Monterrey",
+																				"UDEM":"UDEM",
 																				"Universidad Autónoma de Nuevo León (UANL)":"ITESM Monterrey",
 																				"Universidad Regiomontana":"ITESM Monterrey",
-																				"Centro de Estudios Superiores de Diseño de Monterrey (CEDIM)":"ITESM Monterrey",
-																				"UDEM":"UDEM",
-																				"Otro":"ITESM Monterrey"
+																				"Otros":"Virtual Expansions MX"
 																				},
 																				"Oaxaca":{
-																					"ULSA Oaxaca":"Oaxaca",
-																					"Universidad Regional del Sureste (URSE)":"Oaxaca",
-																					"UTVCO":"Oaxaca",
-																					"Universidad del Mar":"Oaxaca",
-																					"Universidad Tecnológica de los Valles Centrales de Oaxaca":"Oaxaca",
-																					"Universidad Autónoma Benito Juárez de Oaxaca":"Oaxaca",
-																					"Universidad Anáhuac Oaxaca":"Oaxaca",
-																					"Universidad Tecnológica de la Sierra Sur":"Oaxaca",
 																					"Instituto de Estudios Superiores de Oaxaca":"Oaxaca",
-																					"Otro":"Oaxaca"
+																					"ULSA Oaxaca":"Oaxaca",
+																					"Universidad Anáhuac Oaxaca":"Oaxaca",
+																					"Universidad Autónoma Benito Juárez de Oaxaca":"Oaxaca",
+																					"Universidad del Mar":"Oaxaca",
+																					"Universidad Regional del Sureste (URSE)":"Oaxaca",
+																					"Universidad Tecnológica de la Sierra Sur":"Oaxaca",
+																					"Universidad Tecnológica de los Valles Centrales de Oaxaca":"Oaxaca",
+																					"UTVCO":"Oaxaca",
+																					"Otros":"Virtual Expansions MX"
 																					},
 																					"Puebla":{
 																						"Benemérita Universidad Autónoma de Puebla (BUAP)":"Puebla",
 																						"ITESM Puebla":"Puebla",
 																						"Universidad de las Américas Puebla (UDLAP)":"Puebla",
 																						"Universidad Iberoamericana Puebla":"Puebla",
-																						"UPAEP":"Puebla"
+																						"UPAEP":"Puebla",
+																						"Otros":"Virtual Expansions MX"
 																						},
 																						"Querétaro":{
 																							"Insituto Tecnológico de Querétaro":"Querétaro",
 																							"ITESM Querétaro":"Querétaro",
 																							"Tec Milenio Querétaro":"Querétaro",
-																							"Universidad Anáhuac Querétaro":"Querétaro",
 																							"UAQ":"Querétaro",
-																							"Universidad Cuauhtemoc":"Querétaro",
-																							"UVM Querétaro":"Querétaro",
+																							"Universidad Anáhuac Querétaro":"Querétaro",
 																							"Universidad Católica (UNIVA)":"Querétaro",
+																							"Universidad Cuauhtemoc":"Querétaro",
 																							"Universidad Mondragón":"Querétaro",
-																							"Otro":"Querétaro"
+																							"UVM Querétaro":"Querétaro",
+																							"Otros":"Virtual Expansions MX"
 																							},
 																							"Quintana Roo":{
-																								"Quintana Roo":"Mérida"
+																								"Quintana Roo":"Mérida, Yucatán"
 																								},
 																								"San Luis Potosí":{
-																									"San Luis Potosí":"Guanajuato" 
+																									"San Luis Potosí":"Virtual Expansions MX" 
 																									},
 																									"Sinaloa":{
-																										"Instituto Tecnológico de Los Mochis":"Sinaloa",
-																										"UAD Los Mochis":"Sinaloa",
-																										"Universidad Autónoma de Sinaloa Campus Los Mochis":"Sinaloa",
-																										"Universidad de Occidente  Campus Los Mochis":"Sinaloa",
 																										"Instituto Tecnológico de Culiacán":"Sinaloa",
+																										"Instituto Tecnológico de Los Mochis":"Sinaloa",
 																										"ITESM Sinaloa":"Sinaloa",
+																										"Linguatec":"Virtual Expansions MX",
 																										"Tec Milenio Culiacán":"Sinaloa",
 																										"UAD Culiacán":"Sinaloa",
+																										"UAD Los Mochis":"Sinaloa",
 																										"Universidad Autónoma de Sinaloa":"Sinaloa",
+																										"Universidad Autónoma de Sinaloa Campus Los Mochis":"Sinaloa",
 																										"Universidad Casa Blanca":"Sinaloa",
 																										"Universidad Católica de Culiacán":"Sinaloa",
 																										"Universidad de Occidente":"Sinaloa",
+																										"Universidad de Occidente Campus Los Mochis":"Sinaloa",
 																										"Universidad de San Miguel":"Sinaloa",
 																										"Universidad México Internacional":"Sinaloa",
 																										"Universidad San Sebastián":"Sinaloa",
-																										"Otro":"Sinaloa"
+																										"Otros":"Virtual Expansions MX"
 																										},
 																										"Sonora":{
 																											"Centro Universitario de Tijuana":"Hermosillo",
@@ -237,21 +250,22 @@
 																											"Tec Milenio Hermosillo":"Hermosillo",
 																											"ULSA Noroeste":"Hermosillo",
 																											"Universidad de Sonora (UNISON)":"Hermosillo",
+																											"Universidad de Sonora Campus Obregón":"Hermosillo",
 																											"Universidad Estatal de Sonora":"Hermosillo",
 																											"Universidad Kino":"Hermosillo",
-																											"Universidad de Sonora Campus Obregón":"Hermosillo",
-																											"Otro":"Hermosillo"
+																											"Otro":"Virtual Expansions MX"
 																											},
 																											"Tabasco":{
+																												"Linguatec":"Virtual Expansions MX",
 																												"Tec Milenio Villahermosa":"Tabasco",
 																												"UAG Campus Tabasco":"Tabasco",
 																												"Universidad Juárez Autónoma de Tabasco":"Tabasco",
-																												"Universidad Mundo Maya":"Tabasco",
+																												"Universidad Mundo Maya":"Virtual Expansions MX",
 																												"Universidad Olmeca":"Tabasco",
 																												"Universidad Politécnica del Centro (UPC)":"Tabasco",
 																												"Universidad Politécnica del Golfo de México (UPGM)":"Tabasco",
-																												"UVM Villahermosa":"Tabasco",
-																												"Otro":"Tabasco"
+																												"UVM Villahermosa":"Virtual Expansions MX",
+																												"Otros":"Virtual Expansions MX"
 																												},
 																												"Tamaulipas":{
 																													"Instituto de Estudios Superiores de Tamaulipas":"Tampico",
@@ -264,47 +278,48 @@
 																													"Universidad del Noreste":"Tampico",
 																													"Universidad Politécnica de Victoria":"Tampico",
 																													"UVM Ciudad Victoria":"Tampico",
-																													"Otro":"Tampico"
+																													"Otros":"Virtual Expansions MX"
 																													},
 																													"Tlaxcala":{
-																														"Tlaxcala":"Puebla"
+																														"Tlaxcala":"Virtual Expansions MX"
 																														},
 																														"Veracruz":{
 																															"Benemérita Escuela Normal Veracruzana Enrique C. Rebsamen":"Veracruz",
-																															"Instituto Tecnológico Superior de Alvarado":"Veracruz",
+																															"Instituto Tecnológico Superior de Alvarado":"Virtual Expansions MX",
 																															"Instituto Tecnológico Superior de Poza Rica":"Veracruz",
-																															"Instituto Tecnológico Superior de Xalapa":"Veracruz",
-																															"ITESM  Córdoba":"Veracruz",
-																															"Tecnológico de Gutiérrez Zamora":"Veracruz",
+																															"Instituto Tecnológico Superior de Xalapa":"Virtual Expansions MX",
+																															"ITESM Córdoba":"Veracruz",
+																															"Tecnológico de Gutiérrez Zamora":"Virtual Expansions MX",
 																															"Universidad Anáhuac Xalapa":"Veracruz",
 																															"Universidad Cristóbal Colón":"Veracruz",
-																															"Universidad de América Latina":"Veracruz",
+																															"Universidad de América Latina":"Virtual Expansions MX",
 																															"Universidad de Oriente":"Veracruz",
 																															"Universidad de Xalapa":"Veracruz",
 																															"Universidad Eurohispanoamericana":"Veracruz",
-																															"Universidad Gestalt de Diseño":"Veracruz",
+																															"Universidad Gestalt de Diseño":"Virtual Expansions MX",
 																															"Universidad Veracruzana (Todos los campus)":"Veracruz",
-																															"Otro":"Veracruz"
+																															"UVM":"Veracruz",
+																															"Otros":"Virtual Expansions MX"
 																															},
 																															"Yucatán":{
-																																"Instituto Tecnológico de Mérida":"Mérida",
-																																"Tec Milenio Mérida":"Mérida",
-																																"UNID Mérida":"Mérida",
-																																"Universidad Anáhuac Mayab":"Mérida",
-																																"Universidad Autónoma de Yucatán":"Mérida",
-																																"Universidad Latino":"Mérida",
-																																"Universidad Marista":"Mérida",
-																																"Universidad Mesoamericana (UMSA)":"Mérida",
-																																"Universidad Modelo":"Mérida",
-																																"Otro":"Mérida"
+																																"Instituto Tecnológico de Mérida":"Mérida, Yucatán",
+																																"Tec Milenio Mérida":"Virtual Expansions MX",
+																																"UNID Mérida":"Virtual Expansions MX",
+																																"Universidad Anáhuac Mayab":"Mérida, Yucatán",
+																																"Universidad Autónoma de Yucatán":"Mérida, Yucatán",
+																																"Universidad Latino":"Mérida, Yucatán",
+																																"Universidad Marista":"Mérida, Yucatán",
+																																"Universidad Mesoamericana (UMSA)":"Virtual Expansions MX",
+																																"Universidad Modelo":"Mérida, Yucatán",
+																																"Otros":"Virtual Expansions MX"
 																																},
 																																"Zacatecas":{
-																																	"Instituto Tecnológico de Zacatecas (ITZ)":"ITESM Monterrey",
-																																	"ITESM Zacatecas":"ITESM Monterrey",
-																																	"Universidad Autónoma de Durango Campus Zacatecas":"ITESM Monterrey",
-																																	"Universidad Autónoma de Zacatecas (UAZ)":"ITESM Monterrey",
-																																	"Universidad Interamericana para el Desarrollo":"ITESM Monterrey",
-																																	"Otro":"ITESM Monterrey"
+																																	"Instituto Tecnológico de Zacatecas (ITZ)":"Zacatecas",
+																																	"ITESM Zacatecas":"Zacatecas",
+																																	"Universidad Autónoma de Durango Campus Zacatecas":"Zacatecas",
+																																	"Universidad Autónoma de Zacatecas (UAZ)":"Zacatecas",
+																																	"Universidad Interamericana para el Desarrollo":"Zacatecas",
+																																	"Otros":"Virtual Expansions MX"
 																																}
 																															}
 

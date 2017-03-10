@@ -53,25 +53,28 @@
         </tr>
         <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
         <tr>
-          <td style="vertical-align: top;padding-top: 15px; width:30%;padding-left: 5%;text-align: right;"  class="input-name"><h6 style="font-weight:normal; display:inline;font-style:inherit;">Medio por el cuál nos conociste</h6> <span class="required">*</span></td>
+          <td style="vertical-align: top;padding-top: 15px; width:30%;padding-left: 5%;text-align: right;"  class="input-name"><h6 style="font-weight:normal; display:inline;font-style:inherit;">¿Cómo te enteraste de AIESEC?</h6> <span class="required">*</span></td>
           <td>
             <select id="source" name="source" title="{source}"  style="border:1px solid #037Ef3; width: 95%;"  >
-
-             <option value="1" style="background-color: #fff;">Publicidad en Facebook</option>
-             <option value="2" style="background-color: #fff;">Página de Facebook</option>
-             <option value="3" style="background-color: #fff;">Sitio web</option>
-             <option value="4" style="background-color: #fff;">Twitter</option>
-             <option value="5" style="background-color: #fff;">Instagram</option>
-             <option value="6" style="background-color: #fff;">LinkedIn</option>
-             <option value="8" style="background-color: #fff;">Amigos ó Familia</option>
-             <option value="9" style="background-color: #fff;">Soy Miembro de AIESEC</option>
-             <option value="10" style="background-color: #fff;">Publicidad en Universidad</option>
-             <option value="11" style="background-color: #fff;">Stand en Universidad</option>
-             <option value="12" style="background-color: #fff;">Evento</option>
-             <option value="13" style="background-color: #fff;">Radio y Televisión</option>
-             <option value="14" style="background-color: #fff;">Alumni</option>
-             <option value="15" style="background-color: #fff;">Publicación en Medios</option>
-             <option value="16" style="background-color: #fff;">Snapchat</option>
+                  <option disabled selected value>Selecciona una opción</option>
+                  <option value="1" style="background-color: #fff;">Publicidad en Facebook</option>
+                  <option value="2" style="background-color: #fff;">Página de Facebook</option>
+                  <option value="3" style="background-color: #fff;">Sitio web</option>
+                  <option value="4" style="background-color: #fff;">Twitter</option>
+                  <option value="5" style="background-color: #fff;">Instagram</option>
+                  <option value="6" style="background-color: #fff;">LinkedIn</option>
+                  <option value="8" style="background-color: #fff;">Amigos ó Familia</option>
+                  <option value="9" style="background-color: #fff;">Soy Miembro de AIESEC</option>
+                  <option value="10" style="background-color: #fff;">Publicidad en Universidad</option>
+                  <option value="11" style="background-color: #fff;">Stands en universidades y/o activaciones</option>
+                  <option value="12" style="background-color: #fff;">Eventos externos o en tu universidad</option>
+                  <option value="13" style="background-color: #fff;">Radio, televisión, prensa, revistas</option>
+                  <option value="14" style="background-color: #fff;">Un Alumni me recomendó</option>
+                  <option value="15" style="background-color: #fff;">Publicación en Medios</option>
+                  <option value="16" style="background-color: #fff;">Snapchat</option>
+                  <option value="18" style="background-color: #fff;">Medios universitarios</option>
+                  <option value="19" style="background-color: #fff;">Sesión informativa</option>
+                  <option value="20" style="background-color: #fff;">Soy alumni de la organización</option>
            </select>
 
          </td>
@@ -87,8 +90,9 @@
         <select id="interested_in" name="interested_in" title="{source}"  
         style="border:1px solid #037Ef3; width: 95%;"  >
 
-        <option value="1" style="background-color:#fff;">Voluntario Internacional</option>
-        <option value="2" style="background-color: #fff;">Practicante Internacional</option>
+        <option value="1" style="background-color:#fff;">Voluntario Global</option>
+        <option value="2" style="background-color: #fff;">Practicante Global</option>
+        <option value="5" style="background-color: #fff;">Emprendedor Global</option>
 
       </select>
 
@@ -120,7 +124,7 @@
 
 
 
-  <tr>
+  <tr hidden="true">
     <td style="vertical-align: top;padding-top: 15px; width:30%;padding-left: 5%;text-align: right;"  class="input-name"><h6 style="font-weight:normal; display:inline;font-style:inherit;">{lc}</h6>  </td>
     <td style="width:66%;"><input class="readonly"  style="border:1px solid #037Ef3; height: 30px; width: 95%;"   id="localcommittee" name="localcommittee" title="{lc}" type="text"  readonly />
     </td>
