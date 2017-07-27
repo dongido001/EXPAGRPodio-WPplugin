@@ -1,16 +1,17 @@
 <?php
 
 //update for epxa endpoint
-
+ 
 //podio library
-include_once '/lib/podio-php-4.3.0/PodioAPI.php';
+include_once 'podio-php-master/PodioAPI.php';
 //get Response library
-require_once '/home/webmaster/wp-config-files/GetResponseAPI3.class.php';
-require '/home/webmaster/wp-config-files/vendor/google/recaptcha/src/autoload.php';
-require '/home/webmaster/wp-config-files/gis_lib/vendor/autoload.php';
+require_once 'getresponse-api-php-master/src/GetResponseAPI3.class.php';
+require 'src/vendor/autoload.php';
+// require '/wp-config-files/gis_lib/vendor/autoload.php';
+// require 'getresponse-api-php-master/lib/src/autoload.php';
 
 //private keys config files
-$configs_external = include('/home/webmaster/wp-config-files/wp_login_config.php');
+$configs_external = include('wp_login_config.php');
 //plugin configs
 $configs = include('config.php');
 
@@ -22,16 +23,17 @@ $gr_campaing_id = $configs_external['gr_campaign_ogv_id'];
 /////captcah verification
 /////captcah verification
 
+//TODO uncomment this whehn on Liv, Don't forget!!!
 
-$recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
+// $recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
 
-$resp = $recaptcha->verify($_POST['g-recaptcha-response'], get_client_ip());
-if (!$resp->isSuccess()) {
-    $errors = $resp->getErrorCodes();
-    header("Location: http://aiesec.org.mx/registro_no");
+// $resp = $recaptcha->verify($_POST['g-recaptcha-response'], get_client_ip());
+// if (!$resp->isSuccess()) {
+//     $errors = $resp->getErrorCodes();
+//     header("Location: http://aiesec.org.mx/registro_no");
 
-    return;
-}
+//     return;
+// }
 
 //captcah verification
 ////captcah verification
@@ -193,11 +195,6 @@ $innerHTML = preg_replace('~[\r\n]+~', '', $innerHTML);
 $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 
 
-
-
-
-
-
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
 ///////////PODIO Start /////////
@@ -269,12 +266,6 @@ $fields = new PodioItemFieldCollection(array(
   new PodioCategoryItemField(array("external_id" => "fuente", "values" => intval($_POST['source'])))
   ));
 
-
-
-
-
-
-
 // Create the item object with fields
 // Be sure to add an app or podio-php won't know where to create the item
 $item = new PodioItem(array(
@@ -302,15 +293,15 @@ catch (PodioError $e) {
 ////////PODIO END /////////
 
 
-function is_iterable($var)
-{
-    return $var !== null 
-    && (is_array($var) 
-        || $var instanceof Traversable 
-        || $var instanceof Iterator 
-        || $var instanceof IteratorAggregate
-        );
-}
+// function is_iterable($var)
+// {
+//     return $var !== null 
+//     && (is_array($var) 
+//         || $var instanceof Traversable 
+//         || $var instanceof Iterator 
+//         || $var instanceof IteratorAggregate
+//         );
+// }
 
 
 
@@ -391,11 +382,7 @@ $getresponse->addContact($gr_data);
 
 ////////////////getresponse ////////////////////////
 
-
 header("Location: http://aiesec.org.mx/registro/?thank_you=true");
-
-
-
 
 function curl_errors($ch)
 {

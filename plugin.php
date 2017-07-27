@@ -68,9 +68,6 @@ function expa_form( $atts ) {
 }
 add_shortcode( 'expa-form', 'expa_form' );
 
-
-
-
 //OGT
 function expa_form_ogt( $atts ) {
     $a = shortcode_atts( array(
@@ -235,7 +232,5 @@ function expa_form_oge( $atts ) {
     return $form;
 }
 add_shortcode( 'expa-form-oge', 'expa_form_oge' );
-
-
 
 ?>
