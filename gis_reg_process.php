@@ -23,7 +23,7 @@ $gr_campaing_id = $configs_external['gr_campaign_ogv_id'];
 /////captcah verification
 /////captcah verification
 
-//TODO uncomment this whehn on Liv, Don't forget!!!
+//TODO uncomment this when on Live, Don't forget!!!
 
 // $recaptcha = new \ReCaptcha\ReCaptcha($configs_external['recaptcha_secret']);
 
@@ -78,19 +78,24 @@ $gis_token = $matches[1];
 // curl_errors($ch1);
 
 //close connection
-curl_close($ch1);
+// curl_close($ch1);
 
 // map LC name -> GIS ID
 // we use javascript to map uni<->LC, so the first step is already taken care of
 $lc_json = 'lc_id.json';
 
+//wasn't defined anywhere, ...
+$arrContextOptions = [];
+
 $json = file_get_contents($lc_json, false, stream_context_create($arrContextOptions)); 
 $lc_gis_map = json_decode($json,true); 
 
 
-
 $user_lc = $lc_gis_map[$_POST['localcommittee']];
 $program = intval($_POST['interested_in']);
+
+$user_lc = $_POST['university'];
+
 
 // structure data for GIS
 // form structure taken from actual form submission at auth.aiesec.org/user/sign_in
@@ -115,7 +120,7 @@ $fields = array( 'user'=>array(
     'password' => htmlspecialchars($_POST['password']),
     'phone' => htmlspecialchars($_POST['phone']),
     'lc' => $user_lc,
-    'country_code' => '+52'
+    'country_code' => '+233'
     )
     );
 
@@ -124,12 +129,13 @@ $fields = array( 'user'=>array(
 // echo "<h2>Text going to GIS</h2>";
 // echo '<pre>';
 // print_r($fields);
-// echo "</pre>";
+// echo "</pre>";die();
 
 //url-ify the data for the POST
 $fields_string = "";
 foreach($fields as $key=>$value) { $fields_string .= $key.'='.urlencode($value).'&'; }
 rtrim($fields_string, '&');
+
 $innerHTML = "";
 // UNCOMMENT THIS BLOCK: to enable real GIS form submission
 $fieldsjs = json_encode($fields);

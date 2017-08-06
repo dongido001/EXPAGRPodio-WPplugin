@@ -12,7 +12,7 @@ return array(
     'lead-name' => 'Lead Name',
     'lc' => 'Entidad Local',
     'thank-you-message' => 'Muchas gracias por tu registro, pronto recibiras un correo electónico. E inicia sesion en nuestra  <a href="https://opportunities.aiesec.org/" target="_blank"> plataforma.</a>',
-    'country_name' => 'Mexico',
+    'country_name' => 'Ghana',
     'mc_id' => '1589'
 );
 
