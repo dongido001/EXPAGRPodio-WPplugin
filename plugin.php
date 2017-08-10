@@ -9,11 +9,18 @@ Author URI: https://www.linkedin.com/profile/view?id=AAIAABf8S30Bu64oKEuBPfCG5ZY
 License: GPL 
 TEST: YES
 */
-wp_enqueue_script('jquery');
-defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
+$save_data = '';
+if( $_SERVER['REQUEST_METHOD'] == "POST"){
+
+   require_once('gis_reg_process.php');
+
+}
 // [expa-form program="gt"]
 
+ob_start();
+wp_enqueue_script('jquery');
+defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
 ///GENERAL
 function expa_form( $atts ) {
@@ -38,7 +45,7 @@ function expa_form( $atts ) {
     foreach($leads as $key => $value){
         $option_list = $option_list.'<option value="'.$key.'">'.$key.'</option>'."\n";//var_dump($lead->);    
     }
-    $form = str_replace("{path-gis_reg_process}",plugins_url('gis_reg_process.php', __FILE__ ),$form);
+    $form = str_replace("{path-gis_reg_process}",plugins_url('plugin.php', __FILE__ ),$form);
     $form = str_replace("{path-gis_lcMapper}",plugins_url('gis_lcMapper.js', __FILE__ ),$form);
     $form = str_replace("{path-leads-json}",plugins_url('leads.json', __FILE__ ),$form);
     $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -91,7 +98,7 @@ function expa_form_ogt( $atts ) {
     foreach($leads as $key => $value){
         $option_list = $option_list.'<option value="'.$key.'">'.$key.'</option>'."\n";//var_dump($lead->);    
     }
-    $form = str_replace("{path-gis_reg_process}",plugins_url('gis_reg_process.php', __FILE__ ),$form);
+    $form = str_replace("{path-gis_reg_process}",plugins_url('plugin.php', __FILE__ ),$form);
     $form = str_replace("{path-gis_lcMapper}",plugins_url('gis_lcMapper.js', __FILE__ ),$form);
     $form = str_replace("{path-leads-json}",plugins_url('leads.json', __FILE__ ),$form);
     $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -148,7 +155,7 @@ function expa_form_ogv( $atts ) {
     foreach($leads as $key => $value){
         $option_list = $option_list.'<option value="'.$key.'">'.$key.'</option>'."\n";//var_dump($lead->);    
     }
-    $form = str_replace("{path-gis_reg_process}",plugins_url('gis_reg_process.php', __FILE__ ),$form);
+    $form = str_replace("{path-gis_reg_process}",plugins_url('plugin.php', __FILE__ ),$form);
     $form = str_replace("{path-gis_lcMapper}",plugins_url('gis_lcMapper.js', __FILE__ ),$form);
     $form = str_replace("{path-leads-json}",plugins_url('leads.json', __FILE__ ),$form);
     $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
